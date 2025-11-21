@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>واجهة الامتحان</title>
+<style>
+    body {
+        font-family: Tahoma, sans-serif;
+        background: #f4f6fa;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+    }
+    h1 {
+        margin-bottom: 30px;
+    }
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+    .subject {
+        background: white;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: 0.3s;
+        cursor: pointer;
+        text-decoration: none;
+        color: black;
+    }
+    .subject:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+    .subject img {
+        width: 100%;
+        height: 140px;
+        object-fit: contain;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+    .subject p {
+        margin: 0;
+        font-size: 20px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <h1>اختر المادة للامتحان</h1>
+    <div class="container"><a class="subject" href="arabic.html">
+        <img src="arabic.png" alt="اللغة العربية">
+        <p>اللغة العربية</p>
+    </a>
+
+    <a class="subject" href="english.html">
+        <img src="english.png" alt="اللغة الإنجليزية">
+        <p>English</p>
+    </a>
+
+    <a class="subject" href="math.html">
+        <img src="math.png" alt="الرياضيات">
+        <p>الرياضيات</p>
+    </a>
+
+    <a class="subject" href="biology.html">
+        <img src="biology.png" alt="الأحياء">
+        <p>الأحياء</p>
+    </a>
+
+    <a class="subject" href="physics.html">
+        <img src="physics.png" alt="الفيزياء">
+        <p>الفيزياء</p>
+    </a>
+
+    <a class="subject" href="chemistry.html">
+        <img src="chemistry.png" alt="الكيمياء">
+        <p>الكيمياء</p>
+    </a>
+
+</div>
+
+</body>
+</html>
