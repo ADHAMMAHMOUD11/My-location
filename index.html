@@ -11,20 +11,19 @@
         text-align: center;
         color: #fff;
         background: url('background.jpg') no-repeat center center;
-        background-size: contain; /* تظهر الصورة كاملة بدون قص */
-        background-repeat: no-repeat;
-        background-position: center center;
+        background-size: cover; /* تغطي كامل الشاشة */
+        background-attachment: fixed; /* تجعل الخلفية ثابتة عند السحب */
         position: relative;
-        min-height: 100vh; /* تغطي كامل ارتفاع الشاشة */
+        min-height: 100vh;
     }
 
-    /* تظليل خفيف على الخلفية لسهولة قراءة النصوص */
+    /* تظليل خفيف على الخلفية لتسهيل قراءة النصوص */
     body::before {
         content: "";
         position: fixed;
         top: 0; left: 0;
         width: 100%; height: 100%;
-        background: rgba(0,0,0,0.3); /* تعديل الشفافية حسب وضوح الصورة */
+        background: rgba(0,0,0,0.3);
         z-index: -1;
     }
 
@@ -42,7 +41,7 @@
     }
 
     .subject {
-        background: rgba(255, 255, 255, 0.9); /* شبه شفاف */
+        background: rgba(255, 255, 255, 0.9);
         padding: 15px;
         border-radius: 15px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -120,4 +119,4 @@
         </a>
     </div>
 </body>
-</html>
+            </html>
