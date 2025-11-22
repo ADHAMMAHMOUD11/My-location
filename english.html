@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,103 +19,120 @@
 </head>
 <body>
   <h1>امتحان اللغة الإنجليزية</h1>
-  <div class="timer" id="timerDisplay">15:00</div>  <div class="login card" id="loginBox">
+  <div class="timer" id="timerDisplay">15:00</div>  
+  <div class="login card" id="loginBox">
     <div class="small">أدخل الكود (4 أرقام) والـ Student ID (11 رقم) لبدء الامتحان.</div>
     <input type="text" id="codeInput" placeholder="الكود (مثال: 1234)" maxlength="4">
     <input type="text" id="studentIdInput" placeholder="Student ID - 11 رقم" maxlength="11">
     <button id="startBtn">بدء الامتحان</button>
     <div id="loginMsg" class="small" style="color:red;margin-top:8px"></div>
-  </div>  <form id="examForm" class="hidden"><div class="card question">
-  <p>1) What is the plural of "child"?</p>
-  <div class="options">
-    <label><input type="radio" name="q1" value="A"> A) childs</label>
-    <label><input type="radio" name="q1" value="B"> B) children</label>
-    <label><input type="radio" name="q1" value="C"> C) childes</label>
-    <label><input type="radio" name="q1" value="D"> D) childer</label>
-  </div>
-</div><div class="card question">
-  <p>2) Choose the correct past tense: He ___ to school yesterday.</p>
-  <div class="options">
-    <label><input type="radio" name="q2" value="A"> A) go</label>
-    <label><input type="radio" name="q2" value="B"> B) went</label>
-    <label><input type="radio" name="q2" value="C"> C) goes</label>
-    <label><input type="radio" name="q2" value="D"> D) gone</label>
-  </div>
-</div><div class="card question">
-  <p>3) Fill in the blank: I ___ a book now.</p>
-  <div class="options">
-    <label><input type="radio" name="q3" value="A"> A) reads</label>
-    <label><input type="radio" name="q3" value="B"> B) am reading</label>
-    <label><input type="radio" name="q3" value="C"> C) readed</label>
-    <label><input type="radio" name="q3" value="D"> D) reading</label>
-  </div>
-</div><div class="card question">
-  <p>4) Choose the synonym for "happy".</p>
-  <div class="options">
-    <label><input type="radio" name="q4" value="A"> A) sad</label>
-    <label><input type="radio" name="q4" value="B"> B) glad</label>
-    <label><input type="radio" name="q4" value="C"> C) angry</label>
-    <label><input type="radio" name="q4" value="D"> D) tired</label>
-  </div>
-</div><div class="card question">
-  <p>5) Choose the correct article: ___ apple a day keeps the doctor away.</p>
-  <div class="options">
-    <label><input type="radio" name="q5" value="A"> A) A</label>
-    <label><input type="radio" name="q5" value="B"> B) An</label>
-    <label><input type="radio" name="q5" value="C"> C) The</label>
-    <label><input type="radio" name="q5" value="D"> D) None</label>
-  </div>
-</div><div class="card question">
-  <p>6) The antonym of "hot" is:</p>
-  <div class="options">
-    <label><input type="radio" name="q6" value="A"> A) cold</label>
-    <label><input type="radio" name="q6" value="B"> B) warm</label>
-    <label><input type="radio" name="q6" value="C"> C) boiling</label>
-    <label><input type="radio" name="q6" value="D"> D) sunny</label>
-  </div>
-</div><div class="card question">
-  <p>7) Choose the correct preposition: He is good ___ math.</p>
-  <div class="options">
-    <label><input type="radio" name="q7" value="A"> A) at</label>
-    <label><input type="radio" name="q7" value="B"> B) on</label>
-    <label><input type="radio" name="q7" value="C"> C) in</label>
-    <label><input type="radio" name="q7" value="D"> D) with</label>
-  </div>
-</div><div class="card question">
-  <p>8) Choose the correct sentence:</p>
-  <div class="options">
-    <label><input type="radio" name="q8" value="A"> A) She don't like apples.</label>
-    <label><input type="radio" name="q8" value="B"> B) She doesn't likes apples.</label>
-    <label><input type="radio" name="q8" value="C"> C) She doesn't like apples.</label>
-    <label><input type="radio" name="q8" value="D"> D) She not like apples.</label>
-  </div>
-</div><div class="card question">
-  <p>9) Fill in the blank: I have ___ my homework.</p>
-  <div class="options">
-    <label><input type="radio" name="q9" value="A"> A) do</label>
-    <label><input type="radio" name="q9" value="B"> B) did</label>
-    <label><input type="radio" name="q9" value="C"> C) done</label>
-    <label><input type="radio" name="q9" value="D"> D) doing</label>
-  </div>
-</div><div class="card question">
-  <p>10) Choose the correct plural: man</p>
-  <div class="options">
-    <label><input type="radio" name="q10" value="A"> A) mans</label>
-    <label><input type="radio" name="q10" value="B"> B) men</label>
-    <label><input type="radio" name="q10" value="C"> C) mens</label>
-    <label><input type="radio" name="q10" value="D"> D) manes</label>
-  </div>
-</div><div style="text-align:center;margin-top:12px">
-  <div class="small">* لا تسمح بالدخول إلا بكود صحيح وغير مستخدم</div>
-  <button type="submit">إرسال الامتحان</button>
-</div>  </form><script>
+  </div>  
+
+  <form id="examForm" class="hidden">
+    <!-- أسئلة الإنجليزية 10 -->
+    <div class="card question">
+      <p>1) What is the plural of "child"?</p>
+      <div class="options">
+        <label><input type="radio" name="q1" value="A"> A) Childs</label>
+        <label><input type="radio" name="q1" value="B"> B) Children</label>
+        <label><input type="radio" name="q1" value="C"> C) Childes</label>
+        <label><input type="radio" name="q1" value="D"> D) Childen</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>2) Choose the correct verb form: "He _____ to school every day."</p>
+      <div class="options">
+        <label><input type="radio" name="q2" value="A"> A) go</label>
+        <label><input type="radio" name="q2" value="B"> B) goes</label>
+        <label><input type="radio" name="q2" value="C"> C) going</label>
+        <label><input type="radio" name="q2" value="D"> D) gone</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>3) What is the past tense of "eat"?</p>
+      <div class="options">
+        <label><input type="radio" name="q3" value="A"> A) ate</label>
+        <label><input type="radio" name="q3" value="B"> B) eaten</label>
+        <label><input type="radio" name="q3" value="C"> C) eated</label>
+        <label><input type="radio" name="q3" value="D"> D) eating</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>4) Choose the correct article: "I saw _____ elephant."</p>
+      <div class="options">
+        <label><input type="radio" name="q4" value="A"> A) a</label>
+        <label><input type="radio" name="q4" value="B"> B) an</label>
+        <label><input type="radio" name="q4" value="C"> C) the</label>
+        <label><input type="radio" name="q4" value="D"> D) no article</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>5) Synonym of "happy" is:</p>
+      <div class="options">
+        <label><input type="radio" name="q5" value="A"> A) sad</label>
+        <label><input type="radio" name="q5" value="B"> B) joyful</label>
+        <label><input type="radio" name="q5" value="C"> C) angry</label>
+        <label><input type="radio" name="q5" value="D"> D) tired</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>6) Antonym of "hot" is:</p>
+      <div class="options">
+        <label><input type="radio" name="q6" value="A"> A) cold</label>
+        <label><input type="radio" name="q6" value="B"> B) warm</label>
+        <label><input type="radio" name="q6" value="C"> C) boiling</label>
+        <label><input type="radio" name="q6" value="D"> D) heated</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>7) Fill in the blank: "She _____ playing football."</p>
+      <div class="options">
+        <label><input type="radio" name="q7" value="A"> A) is</label>
+        <label><input type="radio" name="q7" value="B"> B) are</label>
+        <label><input type="radio" name="q7" value="C"> C) am</label>
+        <label><input type="radio" name="q7" value="D"> D) be</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>8) Choose the correct plural: "mouse"</p>
+      <div class="options">
+        <label><input type="radio" name="q8" value="A"> A) mice</label>
+        <label><input type="radio" name="q8" value="B"> B) mouses</label>
+        <label><input type="radio" name="q8" value="C"> C) mousees</label>
+        <label><input type="radio" name="q8" value="D"> D) mece</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>9) What is the opposite of "big"?</p>
+      <div class="options">
+        <label><input type="radio" name="q9" value="A"> A) small</label>
+        <label><input type="radio" name="q9" value="B"> B) large</label>
+        <label><input type="radio" name="q9" value="C"> C) huge</label>
+        <label><input type="radio" name="q9" value="D"> D) tall</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>10) Select the correct pronoun: "This is my book. That is _____."</p>
+      <div class="options">
+        <label><input type="radio" name="q10" value="A"> A) mine</label>
+        <label><input type="radio" name="q10" value="B"> B) me</label>
+        <label><input type="radio" name="q10" value="C"> C) I</label>
+        <label><input type="radio" name="q10" value="D"> D) my</label>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:12px">
+      <div class="small">* لا تسمح بالدخول إلا بكود صحيح وغير مستخدم</div>
+      <button type="submit">إرسال الامتحان</button>
+    </div>
+  </form>
+
+<script>
 /* ====== ضع التوكن وChat ID هنا ====== */
 const TELEGRAM_BOT_TOKEN = '8182981848:AAFESqf1hVM0JSEvywhXJdk5asGJlOq6q00';
 const TELEGRAM_CHAT_ID = '7020597309';
 /* ================================== */
 
-const VALID_CODES = [
-"0478","0146","0348","0452","0509","0514","0561","0562","0789","0844",
+const VALID_CODES = ["0478","0146","0348","0452","0509","0514","0561","0562","0789","0844",
 "0893","0963","1041","1103","1179","1254","1327","1370","1491","1516",
 "1548","1590","1642","1762","1839","1884","1920","2035","2140","2251",
 "2330","2418","2546","2678","2743","2831","2950","3012","3129","3277",
@@ -124,11 +142,9 @@ const VALID_CODES = [
 "6374","6450","6511","6632","6745","6819","6950","7018","7133","7240",
 "7371","7482","7590","7614","7728","7833","7945","8017","8130","8275",
 "8336","8444","8559","8642","8770","8831","8940","9016","9132","9255",
-"9340","9471","9582","9620","9743","9851","9960"
-];
-
+"9340","9471","9582","9620","9743","9851","9960"];
 const USED_CODES_KEY = 'usedExamCodes';
-const CORRECT_ANSWERS = { q1:'B', q2:'B', q3:'B', q4:'B', q5:'B', q6:'A', q7:'A', q8:'C', q9:'C', q10:'B' };
+const CORRECT_ANSWERS = {q1:'B',q2:'B',q3:'A',q4:'B',q5:'B',q6:'A',q7:'A',q8:'A',q9:'A',q10:'A'};
 
 let timerInterval = null;
 let totalSeconds = 15*60;
@@ -139,20 +155,94 @@ let currentStudentId = null;
 function loadUsedCodes(){ try{ return JSON.parse(localStorage.getItem(USED_CODES_KEY) || '[]'); }catch(e){ return []; } }
 function saveUsedCode(code){ const arr = loadUsedCodes(); if(!arr.includes(code)) arr.push(code); localStorage.setItem(USED_CODES_KEY, JSON.stringify(arr)); }
 
-function startTimer(){ const display = document.getElementById('timerDisplay'); const saved = sessionStorage.getItem(`exam_${currentCode}_start_${location.pathname}`); if(saved){ startTimestamp = parseInt(saved,10); const elapsed = Math.floor((Date.now()-startTimestamp)/1000); totalSeconds = Math.max(0, 15*60 - elapsed); } else { startTimestamp = Date.now(); sessionStorage.setItem(`exam_${currentCode}_start_${location.pathname}`, String(startTimestamp)); } timerInterval = setInterval(()=>{ const m = Math.floor(totalSeconds/60).toString().padStart(2,'0'); const s = (totalSeconds%60).toString().padStart(2,'0'); display.textContent = `${m}:${s}`; if(totalSeconds<=0){ clearInterval(timerInterval); alert('انتهى الوقت! سيتم إرسال الامتحان تلقائيًا.'); submitExam(true); } totalSeconds--; },1000); }
+function startTimer(){ 
+  const display = document.getElementById('timerDisplay'); 
+  const saved = sessionStorage.getItem(`exam_${currentCode}_start_${location.pathname}`); 
+  if(saved){ 
+    startTimestamp = parseInt(saved,10); 
+    const elapsed = Math.floor((Date.now()-startTimestamp)/1000); 
+    totalSeconds = Math.max(0, 15*60 - elapsed); 
+  } else { 
+    startTimestamp = Date.now(); 
+    sessionStorage.setItem(`exam_${currentCode}_start_${location.pathname}`, String(startTimestamp)); 
+  } 
+  timerInterval = setInterval(()=>{
+    const m = Math.floor(totalSeconds/60).toString().padStart(2,'0'); 
+    const s = (totalSeconds%60).toString().padStart(2,'0'); 
+    display.textContent = `${m}:${s}`; 
+    if(totalSeconds<=0){ 
+      clearInterval(timerInterval); 
+      alert('انتهى الوقت! سيتم إرسال الامتحان تلقائيًا.'); 
+      submitExam(true); 
+    } 
+    totalSeconds--; 
+  },1000); 
+}
 
 function collectAnswers(){ const out={}; for(let i=1;i<=10;i++){ const el = document.querySelector(`input[name=q${i}]:checked`); out['q'+i] = el ? el.value : ''; } return out; }
 function computeResults(answers){ let score=0; const details={}; for(const k in CORRECT_ANSWERS){ const correct = CORRECT_ANSWERS[k]; const chosen = answers[k] || ''; const ok = chosen === correct; details[k] = { chosen, correct, ok }; if(ok) score++; } return {score, details}; }
+function formatTelegramMessage(subject, studentId, code, answers, results, timeTakenSec){
+  const now = new Date(); 
+  let txt = `📘 *امتحان: ${subject}*\n`; 
+  txt += `👤 Student ID: ${studentId}\n`; 
+  txt += `🔑 Code: ${code}\n`; 
+  txt += `⏱️ الوقت المأخوذ: ${timeTakenSec} ثانية\n`; 
+  txt += `🕒 وقت الإرسال: ${now.toLocaleString('ar-EG')}\n`; 
+  txt += `\n*التفاصيل:*\n`; 
+  for(const q in results.details){ const d = results.details[q]; txt += `${q} - اختر: ${d.chosen || '---'} | الصح: ${d.correct} => ${d.ok ? '✅' : '❌'}\n`; } 
+  txt += `\n*النتيجة:* ${results.score} / 10\n`; 
+  return txt; 
+}
 
-function formatTelegramMessage(subject, studentId, code, answers, results, timeTakenSec){ const now = new Date(); let txt = `📘 *امتحان: ${subject}*\n`; txt += `👤 Student ID: ${studentId}\n`; txt += `🔑 Code: ${code}\n`; txt += `⏱️ الوقت المأخوذ: ${timeTakenSec} ثانية\n`; txt += `🕒 وقت الإرسال: ${now.toLocaleString('ar-EG')}\n`; txt += `\n*التفاصيل:*\n`; for(const q in results.details){ const d = results.details[q]; txt += `${q} - اختر: ${d.chosen || '---'} | الصح: ${d.correct} => ${d.ok ? '✅' : '❌'}\n`; } txt += `\n*النتيجة:* ${results.score} / 10\n`; return txt; }
+async function sendToTelegram(message){ 
+  const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`; 
+  try{ 
+    const res = await fetch(url,{ method:'POST',headers:{'Content-Type':'application/json'},body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' }) }); 
+    return res.ok; 
+  }catch(e){ console.error(e); return false; } 
+}
 
-async function sendToTelegram(message){ const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`; try{ const res = await fetch(url,{ method:'POST',headers:{'Content-Type':'application/json'},body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' }) }); return res.ok; }catch(e){ console.error(e); return false; } }
+async function submitExam(auto=false){ 
+  const answers = collectAnswers(); 
+  const results = computeResults(answers); 
+  const now = Date.now(); 
+  const timeTakenSec = Math.floor((now - startTimestamp)/1000); 
+  const msg = formatTelegramMessage('الإنجليزية', currentStudentId, currentCode, answers, results, timeTakenSec); 
+  const ok = await sendToTelegram(msg); 
+  if(ok){ 
+    alert('تم إرسال الامتحان إلى التلجرام.'); 
+    saveUsedCode(currentCode); 
+    sessionStorage.setItem(`exam_${currentCode}_submitted_${location.pathname}`, '1'); 
+    document.getElementById('examForm').querySelectorAll('input,button').forEach(el=>el.disabled=true); 
+    sessionStorage.removeItem(`exam_${currentCode}_start_${location.pathname}`); 
+  }else{ 
+    alert('فشل في إرسال الرسالة. تحقق من التوكن/Chat ID أو اتصال الإنترنت.'); 
+    if(!auto){ startTimer(); } 
+  } 
+}
 
-async function submitExam(auto=false){ const answers = collectAnswers(); const results = computeResults(answers); const now = Date.now(); const timeTakenSec = Math.floor((now - startTimestamp)/1000); const msg = formatTelegramMessage('الإنجليزية', currentStudentId, currentCode, answers, results, timeTakenSec); const ok = await sendToTelegram(msg); if(ok){ alert('تم إرسال الامتحان إلى التلجرام.'); saveUsedCode(currentCode); sessionStorage.setItem(`exam_${currentCode}_submitted_${location.pathname}`, '1'); document.getElementById('examForm').querySelectorAll('input,button').forEach(el=>el.disabled=true); sessionStorage.removeItem(`exam_${currentCode}_start_${location.pathname}`); }else{ alert('فشل في إرسال الرسالة. تحقق من التوكن/Chat ID أو اتصال الإنترنت.'); if(!auto){ startTimer(); } } }
+document.getElementById('startBtn').addEventListener('click', ()=>{
+  const code = (document.getElementById('codeInput').value || '').trim(); 
+  const studentId = (document.getElementById('studentIdInput').value || '').trim(); 
+  const msgEl = document.getElementById('loginMsg'); msgEl.textContent = ''; 
+  if(!/^\d{4}$/.test(code)){ msgEl.textContent = 'الكود يجب أن يكون 4 أرقام.'; return; } 
+  if(!/^\d{11}$/.test(studentId)){ msgEl.textContent = 'Student ID يجب أن يكون 11 رقماً.'; return; } 
+  if(!VALID_CODES.includes(code)){ msgEl.textContent = 'الكود غير صحيح.'; return; } 
+  const used = loadUsedCodes(); 
+  if(used.includes(code)){ msgEl.textContent = 'هذا الكود مستخدم بالفعل ولا يمكن الدخول.'; return; } 
+  if(sessionStorage.getItem(`exam_${code}_submitted_${location.pathname}`)){ msgEl.textContent = 'تم تسليم الامتحان سابقاً باستخدام هذا الكود.'; return; } 
+  currentCode = code; 
+  currentStudentId = studentId; 
+  document.getElementById('loginBox').classList.add('hidden'); 
+  document.getElementById('examForm').classList.remove('hidden'); 
+  startTimer(); 
+});
 
-document.getElementById('startBtn').addEventListener('click', ()=>{ const code = (document.getElementById('codeInput').value || '').trim(); const studentId = (document.getElementById('studentIdInput').value || '').trim(); const msgEl = document.getElementById('loginMsg'); msgEl.textContent = ''; if(!/^\d{4}$/.test(code)){ msgEl.textContent = 'الكود يجب أن يكون 4 أرقام.'; return; } if(!/^\d{11}$/.test(studentId)){ msgEl.textContent = 'Student ID يجب أن يكون 11 رقماً.'; return; } if(!VALID_CODES.includes(code)){ msgEl.textContent = 'الكود غير صحيح.'; return; } const used = loadUsedCodes(); if(used.includes(code)){ msgEl.textContent = 'هذا الكود مستخدم بالفعل ولا يمكن الدخول.'; return; } if(sessionStorage.getItem(`exam_${code}_submitted_${location.pathname}`)){ msgEl.textContent = 'تم تسليم الامتحان سابقاً باستخدام هذا الكود.'; return; } currentCode = code; currentStudentId = studentId; document.getElementById('loginBox').classList.add('hidden'); document.getElementById('examForm').classList.remove('hidden'); startTimer(); });
-
-document.getElementById('examForm').addEventListener('submit', function(e){ e.preventDefault(); clearInterval(timerInterval); submitExam(false); });
-
-</script></body>
-</html>
+document.getElementById('examForm').addEventListener('submit', function(e){ 
+  e.preventDefault(); 
+  clearInterval(timerInterval); 
+  submitExam(false); 
+});
+</script>
+</body>
+                 </html>
