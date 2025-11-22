@@ -1,0 +1,158 @@
+<!DOCTYPE html><html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>امتحان الأحياء</title>
+<style>
+  body{font-family:Tahoma, sans-serif;background:#f9f9fb;padding:18px}
+  h1{text-align:center;margin-bottom:10px}
+  .card{background:#fff;padding:14px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.06);margin-bottom:12px}
+  .timer{font-size:20px;color:#b71c1c;text-align:center;margin-bottom:12px}
+  .options label{display:block;margin:6px 0;cursor:pointer}
+  .login{max-width:520px;margin:8px auto;padding:12px;background:#fff;border-radius:10px}
+  input[type=text]{padding:9px;width:100%;box-sizing:border-box;margin:6px 0}
+  button{padding:10px 16px;border-radius:8px;border:none;background:#1976d2;color:#fff;cursor:pointer}
+  .small{font-size:13px;color:#555}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+  <h1>امتحان الأحياء</h1>
+  <div class="timer" id="timerDisplay">15:00</div>  <div class="login card" id="loginBox">
+    <div class="small">أدخل الكود (4 أرقام) والـ Student ID (11 رقم) لبدء الامتحان.</div>
+    <input type="text" id="codeInput" placeholder="الكود (مثال: 1234)" maxlength="4">
+    <input type="text" id="studentIdInput" placeholder="Student ID - 11 رقم" maxlength="11">
+    <button id="startBtn">بدء الامتحان</button>
+    <div id="loginMsg" class="small" style="color:red;margin-top:8px"></div>
+  </div>  <form id="examForm" class="hidden"><div class="card question">
+  <p>1) الخلية هي الوحدة الأساسية في:</p>
+  <div class="options">
+    <label><input type="radio" name="q1" value="A"> A) الجسم بالكامل</label>
+    <label><input type="radio" name="q1" value="B"> B) المادة الوراثية</label>
+    <label><input type="radio" name="q1" value="C"> C) النسيج فقط</label>
+    <label><input type="radio" name="q1" value="D"> D) البروتينات</label>
+  </div>
+</div><div class="card question">
+  <p>2) العضو الذي يقوم بتصفية الدم من السموم هو:</p>
+  <div class="options">
+    <label><input type="radio" name="q2" value="A"> A) القلب</label>
+    <label><input type="radio" name="q2" value="B"> B) الكبد</label>
+    <label><input type="radio" name="q2" value="C"> C) الرئة</label>
+    <label><input type="radio" name="q2" value="D"> D) البنكرياس</label>
+  </div>
+</div><div class="card question">
+  <p>3) المادة الوراثية في الخلية هي:</p>
+  <div class="options">
+    <label><input type="radio" name="q3" value="A"> A) RNA</label>
+    <label><input type="radio" name="q3" value="B"> B) DNA</label>
+    <label><input type="radio" name="q3" value="C"> C) البروتين</label>
+    <label><input type="radio" name="q3" value="D"> D) الدهون</label>
+  </div>
+</div><div class="card question">
+  <p>4) أين تحدث عملية التمثيل الضوئي؟</p>
+  <div class="options">
+    <label><input type="radio" name="q4" value="A"> A) النواة</label>
+    <label><input type="radio" name="q4" value="B"> B) الميتوكوندريا</label>
+    <label><input type="radio" name="q4" value="C"> C) البلاستيدات الخضراء</label>
+    <label><input type="radio" name="q4" value="D"> D) السيتوبلازم</label>
+  </div>
+</div><div class="card question">
+  <p>5) أي من التالي يعتبر عضواً من أعضاء الجهاز التنفسي؟</p>
+  <div class="options">
+    <label><input type="radio" name="q5" value="A"> A) الكبد</label>
+    <label><input type="radio" name="q5" value="B"> B) الرئة</label>
+    <label><input type="radio" name="q5" value="C"> C) المعدة</label>
+    <label><input type="radio" name="q5" value="D"> D) الكلية</label>
+  </div>
+</div><div class="card question">
+  <p>6) الدم يحمل:</p>
+  <div class="options">
+    <label><input type="radio" name="q6" value="A"> A) الأكسجين فقط</label>
+    <label><input type="radio" name="q6" value="B"> B) الغذاء فقط</label>
+    <label><input type="radio" name="q6" value="C"> C) الأكسجين والغذاء والفضلات</label>
+    <label><input type="radio" name="q6" value="D"> D) الماء فقط</label>
+  </div>
+</div><div class="card question">
+  <p>7) العضو الذي يتحكم في توازن الجسم و الحركة هو:</p>
+  <div class="options">
+    <label><input type="radio" name="q7" value="A"> A) المخ</label>
+    <label><input type="radio" name="q7" value="B"> B) القلب</label>
+    <label><input type="radio" name="q7" value="C"> C) الكلية</label>
+    <label><input type="radio" name="q7" value="D"> D) الكبد</label>
+  </div>
+</div><div class="card question">
+  <p>8) البروتينات تتكون من:</p>
+  <div class="options">
+    <label><input type="radio" name="q8" value="A"> A) أحماض أمينية</label>
+    <label><input type="radio" name="q8" value="B"> B) سكريات</label>
+    <label><input type="radio" name="q8" value="C"> C) دهون</label>
+    <label><input type="radio" name="q8" value="D"> D) أملاح</label>
+  </div>
+</div><div class="card question">
+  <p>9) وظيفة الجذور في النبات هي:</p>
+  <div class="options">
+    <label><input type="radio" name="q9" value="A"> A) امتصاص الماء والمعادن</label>
+    <label><input type="radio" name="q9" value="B"> B) التمثيل الضوئي</label>
+    <label><input type="radio" name="q9" value="C"> C) التكاثر</label>
+    <label><input type="radio" name="q9" value="D"> D) النقل</label>
+  </div>
+</div><div class="card question">
+  <p>10) أي مما يلي يعد مثالاً على التكاثر اللاجنسي؟</p>
+  <div class="options">
+    <label><input type="radio" name="q10" value="A"> A) تلقيح البذور</label>
+    <label><input type="radio" name="q10" value="B"> B) الانقسام الميتوزي</label>
+    <label><input type="radio" name="q10" value="C"> C) التلقيح الصناعي</label>
+    <label><input type="radio" name="q10" value="D"> D) التزاوج</label>
+  </div>
+</div><div style="text-align:center;margin-top:12px">
+  <div class="small">* لا تسمح بالدخول إلا بكود صحيح وغير مستخدم</div>
+  <button type="submit">إرسال الامتحان</button>
+</div>  </form><script>
+/* ====== ضع التوكن وChat ID هنا ====== */
+const TELEGRAM_BOT_TOKEN = '8182981848:AAFESqf1hVM0JSEvywhXJdk5asGJlOq6q00';
+const TELEGRAM_CHAT_ID = '7020597309';
+/* ================================== */
+
+const VALID_CODES = [
+"0478","0146","0348","0452","0509","0514","0561","0562","0789","0844",
+"0893","0963","1041","1103","1179","1254","1327","1370","1491","1516",
+"1548","1590","1642","1762","1839","1884","1920","2035","2140","2251",
+"2330","2418","2546","2678","2743","2831","2950","3012","3129","3277",
+"3344","3471","3553","3660","3721","3876","3904","4028","4170","4235",
+"4311","4457","4570","4602","4729","4830","4912","5007","5140","5239",
+"5361","5440","5509","5633","5777","5830","5931","6048","6112","6279",
+"6374","6450","6511","6632","6745","6819","6950","7018","7133","7240",
+"7371","7482","7590","7614","7728","7833","7945","8017","8130","8275",
+"8336","8444","8559","8642","8770","8831","8940","9016","9132","9255",
+"9340","9471","9582","9620","9743","9851","9960"
+];
+
+const USED_CODES_KEY = 'usedExamCodes';
+const CORRECT_ANSWERS = { q1:'A', q2:'B', q3:'B', q4:'C', q5:'B', q6:'C', q7:'A', q8:'A', q9:'A', q10:'B' };
+
+let timerInterval = null;
+let totalSeconds = 15*60;
+let startTimestamp = null;
+let currentCode = null;
+let currentStudentId = null;
+
+function loadUsedCodes(){ try{ return JSON.parse(localStorage.getItem(USED_CODES_KEY) || '[]'); }catch(e){ return []; } }
+function saveUsedCode(code){ const arr = loadUsedCodes(); if(!arr.includes(code)) arr.push(code); localStorage.setItem(USED_CODES_KEY, JSON.stringify(arr)); }
+
+function startTimer(){ const display = document.getElementById('timerDisplay'); const saved = sessionStorage.getItem(`exam_${currentCode}_start_${location.pathname}`); if(saved){ startTimestamp = parseInt(saved,10); const elapsed = Math.floor((Date.now()-startTimestamp)/1000); totalSeconds = Math.max(0, 15*60 - elapsed); } else { startTimestamp = Date.now(); sessionStorage.setItem(`exam_${currentCode}_start_${location.pathname}`, String(startTimestamp)); } timerInterval = setInterval(()=>{ const m = Math.floor(totalSeconds/60).toString().padStart(2,'0'); const s = (totalSeconds%60).toString().padStart(2,'0'); display.textContent = `${m}:${s}`; if(totalSeconds<=0){ clearInterval(timerInterval); alert('انتهى الوقت! سيتم إرسال الامتحان تلقائيًا.'); submitExam(true); } totalSeconds--; },1000); }
+
+function collectAnswers(){ const out={}; for(let i=1;i<=10;i++){ const el = document.querySelector(`input[name=q${i}]:checked`); out['q'+i] = el ? el.value : ''; } return out; }
+function computeResults(answers){ let score=0; const details={}; for(const k in CORRECT_ANSWERS){ const correct = CORRECT_ANSWERS[k]; const chosen = answers[k] || ''; const ok = chosen === correct; details[k] = { chosen, correct, ok }; if(ok) score++; } return {score, details}; }
+
+function formatTelegramMessage(subject, studentId, code, answers, results, timeTakenSec){ const now = new Date(); let txt = `📘 *امتحان: ${subject}*\n`; txt += `👤 Student ID: ${studentId}\n`; txt += `🔑 Code: ${code}\n`; txt += `⏱️ الوقت المأخوذ: ${timeTakenSec} ثانية\n`; txt += `🕒 وقت الإرسال: ${now.toLocaleString('ar-EG')}\n`; txt += `\n*التفاصيل:*\n`; for(const q in results.details){ const d = results.details[q]; txt += `${q} - اختر: ${d.chosen || '---'} | الصح: ${d.correct} => ${d.ok ? '✅' : '❌'}\n`; } txt += `\n*النتيجة:* ${results.score} / 10\n`; return txt; }
+
+async function sendToTelegram(message){ const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`; try{ const res = await fetch(url,{ method:'POST',headers:{'Content-Type':'application/json'},body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' }) }); return res.ok; }catch(e){ console.error(e); return false; } }
+
+async function submitExam(auto=false){ const answers = collectAnswers(); const results = computeResults(answers); const now = Date.now(); const timeTakenSec = Math.floor((now - startTimestamp)/1000); const msg = formatTelegramMessage('الأحياء', currentStudentId, currentCode, answers, results, timeTakenSec); const ok = await sendToTelegram(msg); if(ok){ alert('تم إرسال الامتحان إلى التلجرام.'); saveUsedCode(currentCode); sessionStorage.setItem(`exam_${currentCode}_submitted_${location.pathname}`, '1'); document.getElementById('examForm').querySelectorAll('input,button').forEach(el=>el.disabled=true); sessionStorage.removeItem(`exam_${currentCode}_start_${location.pathname}`); }else{ alert('فشل في إرسال الرسالة. تحقق من التوكن/Chat ID أو اتصال الإنترنت.'); if(!auto){ startTimer(); } } }
+
+document.getElementById('startBtn').addEventListener('click', ()=>{ const code = (document.getElementById('codeInput').value || '').trim(); const studentId = (document.getElementById('studentIdInput').value || '').trim(); const msgEl = document.getElementById('loginMsg'); msgEl.textContent = ''; if(!/^\d{4}$/.test(code)){ msgEl.textContent = 'الكود يجب أن يكون 4 أرقام.'; return; } if(!/^\d{11}$/.test(studentId)){ msgEl.textContent = 'Student ID يجب أن يكون 11 رقماً.'; return; } if(!VALID_CODES.includes(code)){ msgEl.textContent = 'الكود غير صحيح.'; return; } const used = loadUsedCodes(); if(used.includes(code)){ msgEl.textContent = 'هذا الكود مستخدم بالفعل ولا يمكن الدخول.'; return; } if(sessionStorage.getItem(`exam_${code}_submitted_${location.pathname}`)){ msgEl.textContent = 'تم تسليم الامتحان سابقاً باستخدام هذا الكود.'; return; } currentCode = code; currentStudentId = studentId; document.getElementById('loginBox').classList.add('hidden'); document.getElementById('examForm').classList.remove('hidden'); startTimer(); });
+
+document.getElementById('examForm').addEventListener('submit', function(e){ e.preventDefault(); clearInterval(timerInterval); submitExam(false); });
+
+</script></body>
+</html>
