@@ -1,79 +1,72 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>صفحة التواصل</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p1CmDxlkFj59kRnh+Upk5JZxBqzXtA0Jz1YX0EdYgTH1g0xLkE3yUyc9hj6uz2P+/Qp7Hx0r6dK1o1fVJ7xT0A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<style>
-  body {
-    font-family: Tahoma, sans-serif;
-    background: linear-gradient(135deg,#f6f9ff,#eef7f2);
-    text-align: center;
-    padding: 40px 20px;
-    color: #333;
-  }
-  h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #1976d2;
-  }
-  p {
-    font-size: 16px;
-    margin-bottom: 30px;
-  }
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-  }
-  .social-icons a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    color: #fff;
-    font-size: 28px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-decoration: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  }
-  .social-icons a:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-  }
-  .whatsapp { background: #25D366; }
-  .whatsapp-group { background: #128C7E; }
-  .telegram { background: #0088cc; }
-  .facebook { background: #1877f2; }
-  .footer-text {
-    font-size: 15px;
-    color: #555;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.5;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>صفحة التواصل</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #f5f9fc;
+      padding: 20px;
+      line-height: 1.8;
+    }
+    h1 {
+      color: #2d7be5;
+      margin-top: 40px;
+    }
+    .icons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin: 40px 0;
+    }
+    .icon {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: 0.3s;
+      background: #fff;
+    }
+    .icon:hover {
+      transform: scale(1.1);
+    }
+    img {
+      width: 45px;
+      height: 45px;
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
+  <h1>صفحة التواصل</h1>
+  <p>إذا واجهتك مشكلة في الاستخدام يمكنك التواصل معنا فورًا عبر وسائل التواصل التالية:</p>  <div class="icons">
+    <a href="tel:+201226608564" class="icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" />
+    </a><a href="https://wa.me/201101158596" class="icon">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" />
+</a>
 
-<h1>صفحة التواصل</h1>
-<p>إذا واجهتك مشكلة في الاستخدام يجب التواصل مع المطور لحل المشكلة فورًا، شكرًا لتعاونك.</p>
+<a href="https://chat.whatsapp.com/E3zbRyYmrBUC4nquffN5wG?mode=hqrt3" class="icon">
+  <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" />
+</a>
 
-<div class="social-icons">
-  <a href="https://wa.me/201101158596" target="_blank" class="whatsapp" title="واتساب شخصي"><i class="fab fa-whatsapp"></i></a>
-  <a href="https://chat.whatsapp.com/E3zbRyYmrBUC4nquffN5wG?mode=hqrt3" target="_blank" class="whatsapp-group" title="جروب واتساب"><i class="fab fa-whatsapp"></i></a>
-  <a href="https://t.me/ADHAM20088" target="_blank" class="telegram" title="تلجرام"><i class="fab fa-telegram-plane"></i></a>
-  <a href="https://www.facebook.com/share/1AHbWVdqw8/" target="_blank" class="facebook" title="فيسبوك"><i class="fab fa-facebook-f"></i></a>
-</div>
+<a href="https://www.facebook.com/share/1AHbWVdqw8/" class="icon">
+  <img src="https://cdn-icons-png.flaticon.com/512/1384/1384053.png" />
+</a>
 
-<div class="footer-text">
-  نحن هنا لمساعدتك في حال واجهتك أي مشكلة أثناء استخدام الموقع. لا تتردد في التواصل معنا عبر أي من الوسائل أعلاه.
-</div>
+<a href="https://t.me/ADHAM20088" class="icon">
+  <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" />
+</a>
 
+  </div>  <p>نحن هنا لمساعدتك في حال واجهتك أي مشكلة أثناء استخدام الموقع. لا تتردد في التواصل معنا عبر أي من الوسائل أعلاه.</p>
+  <p style="margin-top:40px; color:#555; font-size:14px;">©جميع الحقوق محفوظة لـ ادهم محمود</p>
 </body>
 </html>
