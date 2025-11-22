@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,103 +19,119 @@
 </head>
 <body>
   <h1>امتحان اللغة العربية</h1>
-  <div class="timer" id="timerDisplay">15:00</div>  <div class="login card" id="loginBox">
+  <div class="timer" id="timerDisplay">15:00</div>  
+  <div class="login card" id="loginBox">
     <div class="small">أدخل الكود (4 أرقام) والـ Student ID (11 رقم) لبدء الامتحان.</div>
     <input type="text" id="codeInput" placeholder="الكود (مثال: 1234)" maxlength="4">
     <input type="text" id="studentIdInput" placeholder="Student ID - 11 رقم" maxlength="11">
     <button id="startBtn">بدء الامتحان</button>
     <div id="loginMsg" class="small" style="color:red;margin-top:8px"></div>
-  </div>  <form id="examForm" class="hidden"><div class="card question">
-  <p>1) ما جمع كلمة "كتاب"؟</p>
-  <div class="options">
-    <label><input type="radio" name="q1" value="A"> A) كتائب</label>
-    <label><input type="radio" name="q1" value="B"> B) كتب</label>
-    <label><input type="radio" name="q1" value="C"> C) كتابة</label>
-    <label><input type="radio" name="q1" value="D"> D) كتابون</label>
-  </div>
-</div><div class="card question">
-  <p>2) ما نوع الأسلوب في الجملة: "ما أجمل السماء!"؟</p>
-  <div class="options">
-    <label><input type="radio" name="q2" value="A"> A) نداء</label>
-    <label><input type="radio" name="q2" value="B"> B) تعجب</label>
-    <label><input type="radio" name="q2" value="C"> C) استفهام</label>
-    <label><input type="radio" name="q2" value="D"> D) نفي</label>
-  </div>
-</div><div class="card question">
-  <p>3) الفعل "يكتب" زمنه:</p>
-  <div class="options">
-    <label><input type="radio" name="q3" value="A"> A) ماضٍ</label>
-    <label><input type="radio" name="q3" value="B"> B) مضارع</label>
-    <label><input type="radio" name="q3" value="C"> C) أمر</label>
-    <label><input type="radio" name="q3" value="D"> D) مستقبل</label>
-  </div>
-</div><div class="card question">
-  <p>4) أي مما يلي اسم؟</p>
-  <div class="options">
-    <label><input type="radio" name="q4" value="A"> A) يذهب</label>
-    <label><input type="radio" name="q4" value="B"> B) علم</label>
-    <label><input type="radio" name="q4" value="C"> C) يكتب</label>
-    <label><input type="radio" name="q4" value="D"> D) اسمع</label>
-  </div>
-</div><div class="card question">
-  <p>5) الجملة الاسمية تبدأ بـ:</p>
-  <div class="options">
-    <label><input type="radio" name="q5" value="A"> A) فعل</label>
-    <label><input type="radio" name="q5" value="B"> B) مبتدأ</label>
-    <label><input type="radio" name="q5" value="C"> C) ظرف</label>
-    <label><input type="radio" name="q5" value="D"> D) حرف جر</label>
-  </div>
-</div><div class="card question">
-  <p>6) ما مضاد كلمة "سعيد"؟</p>
-  <div class="options">
-    <label><input type="radio" name="q6" value="A"> A) فرح</label>
-    <label><input type="radio" name="q6" value="B"> B) حزين</label>
-    <label><input type="radio" name="q6" value="C"> C) ضاحك</label>
-    <label><input type="radio" name="q6" value="D"> D) مرح</label>
-  </div>
-</div><div class="card question">
-  <p>7) ما الفاعل في جملة: "كتب الطالب الدرس"؟</p>
-  <div class="options">
-    <label><input type="radio" name="q7" value="A"> A) كتب</label>
-    <label><input type="radio" name="q7" value="B"> B) الطالب</label>
-    <label><input type="radio" name="q7" value="C"> C) الدرس</label>
-    <label><input type="radio" name="q7" value="D"> D) يكتب</label>
-  </div>
-</div><div class="card question">
-  <p>8) جمع كلمة "مدينة" هو:</p>
-  <div class="options">
-    <label><input type="radio" name="q8" value="A"> A) مدن</label>
-    <label><input type="radio" name="q8" value="B"> B) مدينةات</label>
-    <label><input type="radio" name="q8" value="C"> C) مدائن</label>
-    <label><input type="radio" name="q8" value="D"> D) مدوّن</label>
-  </div>
-</div><div class="card question">
-  <p>9) الفعل الماضي من "ينام" هو:</p>
-  <div class="options">
-    <label><input type="radio" name="q9" value="A"> A) نام</label>
-    <label><input type="radio" name="q9" value="B"> B) نوم</label>
-    <label><input type="radio" name="q9" value="C"> C) ينام</label>
-    <label><input type="radio" name="q9" value="D"> D) منام</label>
-  </div>
-</div><div class="card question">
-  <p>10) أي مما يلي حرف جر؟</p>
-  <div class="options">
-    <label><input type="radio" name="q10" value="A"> A) في</label>
-    <label><input type="radio" name="q10" value="B"> B) كتب</label>
-    <label><input type="radio" name="q10" value="C"> C) علم</label>
-    <label><input type="radio" name="q10" value="D"> D) مكتب</label>
-  </div>
-</div><div style="text-align:center;margin-top:12px">
-  <div class="small">* لا تسمح بالدخول إلا بكود صحيح وغير مستخدم</div>
-  <button type="submit">إرسال الامتحان</button>
-</div>  </form><script>
-/* ====== ضع التوكن وChat ID هنا ====== */
+  </div>  
+
+  <form id="examForm" class="hidden">
+    <!-- أسئلة اللغة العربية 10 -->
+    <div class="card question">
+      <p>1) جمع كلمة "كتاب" هو؟</p>
+      <div class="options">
+        <label><input type="radio" name="q1" value="A"> كتابات</label>
+        <label><input type="radio" name="q1" value="B"> كتب</label>
+        <label><input type="radio" name="q1" value="C"> كتبة</label>
+        <label><input type="radio" name="q1" value="D"> مكتبات</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>2) مضاد كلمة "سعيد" هو؟</p>
+      <div class="options">
+        <label><input type="radio" name="q2" value="A"> حزين</label>
+        <label><input type="radio" name="q2" value="B"> فرح</label>
+        <label><input type="radio" name="q2" value="C"> مبتهج</label>
+        <label><input type="radio" name="q2" value="D"> سعيد</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>3) الفعل "درس" في الماضي هو؟</p>
+      <div class="options">
+        <label><input type="radio" name="q3" value="A"> يدرس</label>
+        <label><input type="radio" name="q3" value="B"> درس</label>
+        <label><input type="radio" name="q3" value="C"> سيدرس</label>
+        <label><input type="radio" name="q3" value="D"> دراسة</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>4) مرادف كلمة "جليل" هو؟</p>
+      <div class="options">
+        <label><input type="radio" name="q4" value="A"> عظيم</label>
+        <label><input type="radio" name="q4" value="B"> صغير</label>
+        <label><input type="radio" name="q4" value="C"> قريب</label>
+        <label><input type="radio" name="q4" value="D"> بعيد</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>5) اسم فاعل من الفعل "كتب" هو؟</p>
+      <div class="options">
+        <label><input type="radio" name="q5" value="A"> كاتب</label>
+        <label><input type="radio" name="q5" value="B"> مكتوب</label>
+        <label><input type="radio" name="q5" value="C"> كتابة</label>
+        <label><input type="radio" name="q5" value="D"> كتبة</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>6) من أمثلة الأسماء الخمسة؟</p>
+      <div class="options">
+        <label><input type="radio" name="q6" value="A"> كتابان</label>
+        <label><input type="radio" name="q6" value="B"> كتابي</label>
+        <label><input type="radio" name="q6" value="C"> كتابكم</label>
+        <label><input type="radio" name="q6" value="D"> الكتب</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>7) الفعل المضارع من "جلس" هو؟</p>
+      <div class="options">
+        <label><input type="radio" name="q7" value="A"> يجلس</label>
+        <label><input type="radio" name="q7" value="B"> جلس</label>
+        <label><input type="radio" name="q7" value="C"> جالس</label>
+        <label><input type="radio" name="q7" value="D"> جلسوا</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>8) جمع كلمة "أستاذ" هو؟</p>
+      <div class="options">
+        <label><input type="radio" name="q8" value="A"> أساتذة</label>
+        <label><input type="radio" name="q8" value="B"> أساتذةات</label>
+        <label><input type="radio" name="q8" value="C"> أستاذون</label>
+        <label><input type="radio" name="q8" value="D"> أساتذاء</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>9) مرادف كلمة "سريع" هو؟</p>
+      <div class="options">
+        <label><input type="radio" name="q9" value="A"> بطيء</label>
+        <label><input type="radio" name="q9" value="B"> عاجل</label>
+        <label><input type="radio" name="q9" value="C"> سريع</label>
+        <label><input type="radio" name="q9" value="D"> ضعيف</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>10) اسم المكان من الفعل "سافر" هو؟</p>
+      <div class="options">
+        <label><input type="radio" name="q10" value="A"> مسافر</label>
+        <label><input type="radio" name="q10" value="B"> سفر</label>
+        <label><input type="radio" name="q10" value="C"> مسافرة</label>
+        <label><input type="radio" name="q10" value="D"> سفارة</label>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:12px">
+      <div class="small">* لا تسمح بالدخول إلا بكود صحيح وغير مستخدم</div>
+      <button type="submit">إرسال الامتحان</button>
+    </div>
+  </form>
+
+<script>
 const TELEGRAM_BOT_TOKEN = '8182981848:AAFESqf1hVM0JSEvywhXJdk5asGJlOq6q00';
 const TELEGRAM_CHAT_ID = '7020597309';
-/* ================================== */
 
-const VALID_CODES = [
-"0478","0146","0348","0452","0509","0514","0561","0562","0789","0844",
+const VALID_CODES = ["0478","0146","0348","0452","0509","0514","0561","0562","0789","0844",
 "0893","0963","1041","1103","1179","1254","1327","1370","1491","1516",
 "1548","1590","1642","1762","1839","1884","1920","2035","2140","2251",
 "2330","2418","2546","2678","2743","2831","2950","3012","3129","3277",
@@ -124,11 +141,9 @@ const VALID_CODES = [
 "6374","6450","6511","6632","6745","6819","6950","7018","7133","7240",
 "7371","7482","7590","7614","7728","7833","7945","8017","8130","8275",
 "8336","8444","8559","8642","8770","8831","8940","9016","9132","9255",
-"9340","9471","9582","9620","9743","9851","9960"
-];
-
+"9340","9471","9582","9620","9743","9851","9960"];
 const USED_CODES_KEY = 'usedExamCodes';
-const CORRECT_ANSWERS = { q1:'B', q2:'B', q3:'B', q4:'B', q5:'B', q6:'B', q7:'B', q8:'A', q9:'A', q10:'A' };
+const CORRECT_ANSWERS = {q1:'B',q2:'A',q3:'B',q4:'A',q5:'A',q6:'C',q7:'A',q8:'A',q9:'B',q10:'B'};
 
 let timerInterval = null;
 let totalSeconds = 15*60;
@@ -139,20 +154,94 @@ let currentStudentId = null;
 function loadUsedCodes(){ try{ return JSON.parse(localStorage.getItem(USED_CODES_KEY) || '[]'); }catch(e){ return []; } }
 function saveUsedCode(code){ const arr = loadUsedCodes(); if(!arr.includes(code)) arr.push(code); localStorage.setItem(USED_CODES_KEY, JSON.stringify(arr)); }
 
-function startTimer(){ const display = document.getElementById('timerDisplay'); const saved = sessionStorage.getItem(`exam_${currentCode}_start_${location.pathname}`); if(saved){ startTimestamp = parseInt(saved,10); const elapsed = Math.floor((Date.now()-startTimestamp)/1000); totalSeconds = Math.max(0, 15*60 - elapsed); } else { startTimestamp = Date.now(); sessionStorage.setItem(`exam_${currentCode}_start_${location.pathname}`, String(startTimestamp)); } timerInterval = setInterval(()=>{ const m = Math.floor(totalSeconds/60).toString().padStart(2,'0'); const s = (totalSeconds%60).toString().padStart(2,'0'); display.textContent = `${m}:${s}`; if(totalSeconds<=0){ clearInterval(timerInterval); alert('انتهى الوقت! سيتم إرسال الامتحان تلقائيًا.'); submitExam(true); } totalSeconds--; },1000); }
+function startTimer(){ 
+  const display = document.getElementById('timerDisplay'); 
+  const saved = sessionStorage.getItem(`exam_${currentCode}_start_${location.pathname}`); 
+  if(saved){ 
+    startTimestamp = parseInt(saved,10); 
+    const elapsed = Math.floor((Date.now()-startTimestamp)/1000); 
+    totalSeconds = Math.max(0, 15*60 - elapsed); 
+  } else { 
+    startTimestamp = Date.now(); 
+    sessionStorage.setItem(`exam_${currentCode}_start_${location.pathname}`, String(startTimestamp)); 
+  } 
+  timerInterval = setInterval(()=>{
+    const m = Math.floor(totalSeconds/60).toString().padStart(2,'0'); 
+    const s = (totalSeconds%60).toString().padStart(2,'0'); 
+    display.textContent = `${m}:${s}`; 
+    if(totalSeconds<=0){ 
+      clearInterval(timerInterval); 
+      alert('انتهى الوقت! سيتم إرسال الامتحان تلقائيًا.'); 
+      submitExam(true); 
+    } 
+    totalSeconds--; 
+  },1000); 
+}
 
 function collectAnswers(){ const out={}; for(let i=1;i<=10;i++){ const el = document.querySelector(`input[name=q${i}]:checked`); out['q'+i] = el ? el.value : ''; } return out; }
 function computeResults(answers){ let score=0; const details={}; for(const k in CORRECT_ANSWERS){ const correct = CORRECT_ANSWERS[k]; const chosen = answers[k] || ''; const ok = chosen === correct; details[k] = { chosen, correct, ok }; if(ok) score++; } return {score, details}; }
+function formatTelegramMessage(subject, studentId, code, answers, results, timeTakenSec){
+  const now = new Date(); 
+  let txt = `📘 *امتحان: ${subject}*\n`; 
+  txt += `👤 Student ID: ${studentId}\n`; 
+  txt += `🔑 Code: ${code}\n`; 
+  txt += `⏱️ الوقت المأخوذ: ${timeTakenSec} ثانية\n`; 
+  txt += `🕒 وقت الإرسال: ${now.toLocaleString('ar-EG')}\n`; 
+  txt += `\n*التفاصيل:*\n`; 
+  for(const q in results.details){ const d = results.details[q]; txt += `${q} - اختر: ${d.chosen || '---'} | الصح: ${d.correct} => ${d.ok ? '✅' : '❌'}\n`; } 
+  txt += `\n*النتيجة:* ${results.score} / 10\n`; 
+  return txt; 
+}
 
-function formatTelegramMessage(subject, studentId, code, answers, results, timeTakenSec){ const now = new Date(); let txt = `📘 *امتحان: ${subject}*\n`; txt += `👤 Student ID: ${studentId}\n`; txt += `🔑 Code: ${code}\n`; txt += `⏱️ الوقت المأخوذ: ${timeTakenSec} ثانية\n`; txt += `🕒 وقت الإرسال: ${now.toLocaleString('ar-EG')}\n`; txt += `\n*التفاصيل:*\n`; for(const q in results.details){ const d = results.details[q]; txt += `${q} - اختر: ${d.chosen || '---'} | الصح: ${d.correct} => ${d.ok ? '✅' : '❌'}\n`; } txt += `\n*النتيجة:* ${results.score} / 10\n`; return txt; }
+async function sendToTelegram(message){ 
+  const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`; 
+  try{ 
+    const res = await fetch(url,{ method:'POST',headers:{'Content-Type':'application/json'},body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' }) }); 
+    return res.ok; 
+  }catch(e){ console.error(e); return false; } 
+}
 
-async function sendToTelegram(message){ const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`; try{ const res = await fetch(url,{ method:'POST',headers:{'Content-Type':'application/json'},body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' }) }); return res.ok; }catch(e){ console.error(e); return false; } }
+async function submitExam(auto=false){ 
+  const answers = collectAnswers(); 
+  const results = computeResults(answers); 
+  const now = Date.now(); 
+  const timeTakenSec = Math.floor((now - startTimestamp)/1000); 
+  const msg = formatTelegramMessage('اللغة العربية', currentStudentId, currentCode, answers, results, timeTakenSec); 
+  const ok = await sendToTelegram(msg); 
+  if(ok){ 
+    alert('تم إرسال الامتحان إلى التلجرام.'); 
+    saveUsedCode(currentCode); 
+    sessionStorage.setItem(`exam_${currentCode}_submitted_${location.pathname}`, '1'); 
+    document.getElementById('examForm').querySelectorAll('input,button').forEach(el=>el.disabled=true); 
+    sessionStorage.removeItem(`exam_${currentCode}_start_${location.pathname}`); 
+  }else{ 
+    alert('فشل في إرسال الرسالة. تحقق من التوكن/Chat ID أو اتصال الإنترنت.'); 
+    if(!auto){ startTimer(); } 
+  } 
+}
 
-async function submitExam(auto=false){ const answers = collectAnswers(); const results = computeResults(answers); const now = Date.now(); const timeTakenSec = Math.floor((now - startTimestamp)/1000); const msg = formatTelegramMessage('اللغة العربية', currentStudentId, currentCode, answers, results, timeTakenSec); const ok = await sendToTelegram(msg); if(ok){ alert('تم إرسال الامتحان إلى التلجرام.'); saveUsedCode(currentCode); sessionStorage.setItem(`exam_${currentCode}_submitted_${location.pathname}`, '1'); document.getElementById('examForm').querySelectorAll('input,button').forEach(el=>el.disabled=true); sessionStorage.removeItem(`exam_${currentCode}_start_${location.pathname}`); }else{ alert('فشل في إرسال الرسالة. تحقق من التوكن/Chat ID أو اتصال الإنترنت.'); if(!auto){ startTimer(); } } }
+document.getElementById('startBtn').addEventListener('click', ()=>{
+  const code = (document.getElementById('codeInput').value || '').trim(); 
+  const studentId = (document.getElementById('studentIdInput').value || '').trim(); 
+  const msgEl = document.getElementById('loginMsg'); msgEl.textContent = ''; 
+  if(!/^\d{4}$/.test(code)){ msgEl.textContent = 'الكود يجب أن يكون 4 أرقام.'; return; } 
+  if(!/^\d{11}$/.test(studentId)){ msgEl.textContent = 'Student ID يجب أن يكون 11 رقماً.'; return; } 
+  if(!VALID_CODES.includes(code)){ msgEl.textContent = 'الكود غير صحيح.'; return; } 
+  const used = loadUsedCodes(); 
+  if(used.includes(code)){ msgEl.textContent = 'هذا الكود مستخدم بالفعل ولا يمكن الدخول.'; return; } 
+  if(sessionStorage.getItem(`exam_${code}_submitted_${location.pathname}`)){ msgEl.textContent = 'تم تسليم الامتحان سابقاً باستخدام هذا الكود.'; return; } 
+  currentCode = code; 
+  currentStudentId = studentId; 
+  document.getElementById('loginBox').classList.add('hidden'); 
+  document.getElementById('examForm').classList.remove('hidden'); 
+  startTimer(); 
+});
 
-document.getElementById('startBtn').addEventListener('click', ()=>{ const code = (document.getElementById('codeInput').value || '').trim(); const studentId = (document.getElementById('studentIdInput').value || '').trim(); const msgEl = document.getElementById('loginMsg'); msgEl.textContent = ''; if(!/^\d{4}$/.test(code)){ msgEl.textContent = 'الكود يجب أن يكون 4 أرقام.'; return; } if(!/^\d{11}$/.test(studentId)){ msgEl.textContent = 'Student ID يجب أن يكون 11 رقماً.'; return; } if(!VALID_CODES.includes(code)){ msgEl.textContent = 'الكود غير صحيح.'; return; } const used = loadUsedCodes(); if(used.includes(code)){ msgEl.textContent = 'هذا الكود مستخدم بالفعل ولا يمكن الدخول.'; return; } if(sessionStorage.getItem(`exam_${code}_submitted_${location.pathname}`)){ msgEl.textContent = 'تم تسليم الامتحان سابقاً باستخدام هذا الكود.'; return; } currentCode = code; currentStudentId = studentId; document.getElementById('loginBox').classList.add('hidden'); document.getElementById('examForm').classList.remove('hidden'); startTimer(); });
-
-document.getElementById('examForm').addEventListener('submit', function(e){ e.preventDefault(); clearInterval(timerInterval); submitExam(false); });
-
-</script></body>
-</html>
+document.getElementById('examForm').addEventListener('submit', function(e){ 
+  e.preventDefault(); 
+  clearInterval(timerInterval); 
+  submitExam(false); 
+});
+</script>
+</body>
+                 </html>
