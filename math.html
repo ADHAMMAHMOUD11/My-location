@@ -1,15 +1,16 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8" />
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>امتحان الرياضيات</title>
 <style>
-  body{font-family:Tahoma, sans-serif;background:#f4f6fa;padding:18px}
-  h1{text-align:center;margin-bottom:8px}
-  .card{background:#fff;padding:14px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.08);margin-bottom:12px}
+  body{font-family:Tahoma, sans-serif;background:#f9f9fb;padding:18px}
+  h1{text-align:center;margin-bottom:10px}
+  .card{background:#fff;padding:14px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.06);margin-bottom:12px}
   .timer{font-size:20px;color:#b71c1c;text-align:center;margin-bottom:12px}
   .options label{display:block;margin:6px 0;cursor:pointer}
-  .login{max-width:420px;margin:8px auto;padding:12px;background:#fff;border-radius:10px}
+  .login{max-width:520px;margin:8px auto;padding:12px;background:#fff;border-radius:10px}
   input[type=text]{padding:9px;width:100%;box-sizing:border-box;margin:6px 0}
   button{padding:10px 16px;border-radius:8px;border:none;background:#1976d2;color:#fff;cursor:pointer}
   .small{font-size:13px;color:#555}
@@ -18,127 +19,118 @@
 </head>
 <body>
   <h1>امتحان الرياضيات</h1>
-  <div class="timer" id="timerDisplay">15:00</div>  <div class="login card" id="loginBox">
+  <div class="timer" id="timerDisplay">15:00</div>  
+  <div class="login card" id="loginBox">
     <div class="small">أدخل الكود (4 أرقام) والـ Student ID (11 رقم) لبدء الامتحان.</div>
     <input type="text" id="codeInput" placeholder="الكود (مثال: 1234)" maxlength="4">
     <input type="text" id="studentIdInput" placeholder="Student ID - 11 رقم" maxlength="11">
     <button id="startBtn">بدء الامتحان</button>
     <div id="loginMsg" class="small" style="color:red;margin-top:8px"></div>
-  </div>  <form id="examForm" class="hidden"><!-- أسئلة الرياضيات 10 -->
-<div class="card question">
-  <p>1) ما قيمة 7 + 5 = ؟</p>
-  <div class="options">
-    <label><input type="radio" name="q1" value="A"> A) 11</label>
-    <label><input type="radio" name="q1" value="B"> B) 12</label>
-    <label><input type="radio" name="q1" value="C"> C) 13</label>
-    <label><input type="radio" name="q1" value="D"> D) 10</label>
-  </div>
-</div>
+  </div>  
 
-<div class="card question">
-  <p>2) 9 × 3 = ؟</p>
-  <div class="options">
-    <label><input type="radio" name="q2" value="A"> A) 18</label>
-    <label><input type="radio" name="q2" value="B"> B) 27</label>
-    <label><input type="radio" name="q2" value="C"> C) 36</label>
-    <label><input type="radio" name="q2" value="D"> D) 24</label>
-  </div>
-</div>
+  <form id="examForm" class="hidden">
+    <!-- أسئلة الرياضيات 10 -->
+    <div class="card question">
+      <p>1) ما ناتج 5 + 7 × 2 ؟</p>
+      <div class="options">
+        <label><input type="radio" name="q1" value="A"> A) 24</label>
+        <label><input type="radio" name="q1" value="B"> B) 19</label>
+        <label><input type="radio" name="q1" value="C"> C) 14</label>
+        <label><input type="radio" name="q1" value="D"> D) 26</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>2) إذا كانت س + 3 = 7، فما قيمة س؟</p>
+      <div class="options">
+        <label><input type="radio" name="q2" value="A"> A) 4</label>
+        <label><input type="radio" name="q2" value="B"> B) 10</label>
+        <label><input type="radio" name="q2" value="C"> C) 7</label>
+        <label><input type="radio" name="q2" value="D"> D) 3</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>3) ما ناتج 12 ÷ 3 + 2 ؟</p>
+      <div class="options">
+        <label><input type="radio" name="q3" value="A"> A) 6</label>
+        <label><input type="radio" name="q3" value="B"> B) 8</label>
+        <label><input type="radio" name="q3" value="C"> C) 4</label>
+        <label><input type="radio" name="q3" value="D"> D) 2</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>4) الجذر التربيعي للـ 49 هو:</p>
+      <div class="options">
+        <label><input type="radio" name="q4" value="A"> A) 9</label>
+        <label><input type="radio" name="q4" value="B"> B) 7</label>
+        <label><input type="radio" name="q4" value="C"> C) 14</label>
+        <label><input type="radio" name="q4" value="D"> D) 49</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>5) ما قيمة 3² + 4²؟</p>
+      <div class="options">
+        <label><input type="radio" name="q5" value="A"> A) 7</label>
+        <label><input type="radio" name="q5" value="B"> B) 25</label>
+        <label><input type="radio" name="q5" value="C"> C) 12</label>
+        <label><input type="radio" name="q5" value="D"> D) 16</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>6) إذا كان س = 5، فما ناتج 2س + 3؟</p>
+      <div class="options">
+        <label><input type="radio" name="q6" value="A"> A) 13</label>
+        <label><input type="radio" name="q6" value="B"> B) 10</label>
+        <label><input type="radio" name="q6" value="C"> C) 8</label>
+        <label><input type="radio" name="q6" value="D"> D) 15</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>7) 15 ÷ 3 × 2 = ؟</p>
+      <div class="options">
+        <label><input type="radio" name="q7" value="A"> A) 5</label>
+        <label><input type="radio" name="q7" value="B"> B) 10</label>
+        <label><input type="radio" name="q7" value="C"> C) 8</label>
+        <label><input type="radio" name="q7" value="D"> D) 6</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>8) إذا كان 2x = 10، فما قيمة x؟</p>
+      <div class="options">
+        <label><input type="radio" name="q8" value="A"> A) 5</label>
+        <label><input type="radio" name="q8" value="B"> B) 12</label>
+        <label><input type="radio" name="q8" value="C"> C) 8</label>
+        <label><input type="radio" name="q8" value="D"> D) 10</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>9) حاصل ضرب 7 × 6 = ؟</p>
+      <div class="options">
+        <label><input type="radio" name="q9" value="A"> A) 42</label>
+        <label><input type="radio" name="q9" value="B"> B) 36</label>
+        <label><input type="radio" name="q9" value="C"> C) 48</label>
+        <label><input type="radio" name="q9" value="D"> D) 40</label>
+      </div>
+    </div>
+    <div class="card question">
+      <p>10) 100 ÷ 25 = ؟</p>
+      <div class="options">
+        <label><input type="radio" name="q10" value="A"> A) 4</label>
+        <label><input type="radio" name="q10" value="B"> B) 5</label>
+        <label><input type="radio" name="q10" value="C"> C) 6</label>
+        <label><input type="radio" name="q10" value="D"> D) 3</label>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:12px">
+      <div class="small">* لا تسمح بالدخول إلا بكود صحيح وغير مستخدم</div>
+      <button type="submit">إرسال الامتحان</button>
+    </div>
+  </form>
 
-<div class="card question">
-  <p>3) 15 ÷ 3 = ؟</p>
-  <div class="options">
-    <label><input type="radio" name="q3" value="A"> A) 3</label>
-    <label><input type="radio" name="q3" value="B"> B) 4</label>
-    <label><input type="radio" name="q3" value="C"> C) 5</label>
-    <label><input type="radio" name="q3" value="D"> D) 6</label>
-  </div>
-</div>
-
-<div class="card question">
-  <p>4) مربع 6 = ؟</p>
-  <div class="options">
-    <label><input type="radio" name="q4" value="A"> A) 12</label>
-    <label><input type="radio" name="q4" value="B"> B) 30</label>
-    <label><input type="radio" name="q4" value="C"> C) 36</label>
-    <label><input type="radio" name="q4" value="D"> D) 42</label>
-  </div>
-</div>
-
-<div class="card question">
-  <p>5) 100 - 45 = ؟</p>
-  <div class="options">
-    <label><input type="radio" name="q5" value="A"> A) 45</label>
-    <label><input type="radio" name="q5" value="B"> B) 55</label>
-    <label><input type="radio" name="q5" value="C"> C) 65</label>
-    <label><input type="radio" name="q5" value="D"> D) 75</label>
-  </div>
-</div>
-
-<div class="card question">
-  <p>6) 2³ = ؟</p>
-  <div class="options">
-    <label><input type="radio" name="q6" value="A"> A) 6</label>
-    <label><input type="radio" name="q6" value="B"> B) 8</label>
-    <label><input type="radio" name="q6" value="C"> C) 4</label>
-    <label><input type="radio" name="q6" value="D"> D) 9</label>
-  </div>
-</div>
-
-<div class="card question">
-  <p>7) 11 + 11 = ؟</p>
-  <div class="options">
-    <label><input type="radio" name="q7" value="A"> A) 20</label>
-    <label><input type="radio" name="q7" value="B"> B) 21</label>
-    <label><input type="radio" name="q7" value="C"> C) 22</label>
-    <label><input type="radio" name="q7" value="D"> D) 23</label>
-  </div>
-</div>
-
-<div class="card question">
-  <p>8) 50% من 200 = ؟</p>
-  <div class="options">
-    <label><input type="radio" name="q8" value="A"> A) 50</label>
-    <label><input type="radio" name="q8" value="B"> B) 100</label>
-    <label><input type="radio" name="q8" value="C"> C) 150</label>
-    <label><input type="radio" name="q8" value="D"> D) 200</label>
-  </div>
-</div>
-
-<div class="card question">
-  <p>9) 3 + 4 × 2 = ؟ (اتبع قواعد الأولويات)</p>
-  <div class="options">
-    <label><input type="radio" name="q9" value="A"> A) 14</label>
-    <label><input type="radio" name="q9" value="B"> B) 11</label>
-    <label><input type="radio" name="q9" value="C"> C) 10</label>
-    <label><input type="radio" name="q9" value="D"> D) 7</label>
-  </div>
-</div>
-
-<div class="card question">
-  <p>10) قيمة x إذا كان 2x = 10 ؟</p>
-  <div class="options">
-    <label><input type="radio" name="q10" value="A"> A) 2</label>
-    <label><input type="radio" name="q10" value="B"> B) 3</label>
-    <label><input type="radio" name="q10" value="C"> C) 4</label>
-    <label><input type="radio" name="q10" value="D"> D) 5</label>
-  </div>
-</div>
-
-<div style="text-align:center;margin-top:12px">
-  <div class="small">* لا تسمح بالدخول إلا بكود صحيح وغير مستخدم</div>
-  <button type="submit">إرسال الامتحان</button>
-</div>
-
-  </form><script>
-/* ====== ضع التوكن وChat ID هنا ====== */
+<script>
 const TELEGRAM_BOT_TOKEN = '8182981848:AAFESqf1hVM0JSEvywhXJdk5asGJlOq6q00';
 const TELEGRAM_CHAT_ID = '7020597309';
-/* ================================== */
 
-// قائمة الأكواد الـ100 عشوائية (4 أرقام)
-const VALID_CODES = [
-"0478","0146","0348","0452","0509","0514","0561","0562","0789","0844",
+const VALID_CODES = ["0478","0146","0348","0452","0509","0514","0561","0562","0789","0844",
 "0893","0963","1041","1103","1179","1254","1327","1370","1491","1516",
 "1548","1590","1642","1762","1839","1884","1920","2035","2140","2251",
 "2330","2418","2546","2678","2743","2831","2950","3012","3129","3277",
@@ -148,176 +140,107 @@ const VALID_CODES = [
 "6374","6450","6511","6632","6745","6819","6950","7018","7133","7240",
 "7371","7482","7590","7614","7728","7833","7945","8017","8130","8275",
 "8336","8444","8559","8642","8770","8831","8940","9016","9132","9255",
-"9340","9471","9582","9620","9743","9851","9960"
-];
-
-// مفاتيح التخزين
-const USED_CODES_KEY = 'usedExamCodes'; // يحفظ الأكواد المستخدمة (تُخزن كمصفوفة JSON)
-
-// أسئلة وإجابات صحيحة (القيم تمثل الحرف الصحيح لكل سؤال)
-const CORRECT_ANSWERS = { q1:'B', q2:'B', q3:'C', q4:'C', q5:'B', q6:'B', q7:'C', q8:'B', q9:'B', q10:'D' };
+"9340","9471","9582","9620","9743","9851","9960"];
+const USED_CODES_KEY = 'usedExamCodes';
+const CORRECT_ANSWERS = {q1:'B',q2:'A',q3:'A',q4:'B',q5:'B',q6:'A',q7:'B',q8:'A',q9:'A',q10:'A'};
 
 let timerInterval = null;
 let totalSeconds = 15*60;
-let startTimestamp = null; // سيسجل وقت البدء
+let startTimestamp = null;
 let currentCode = null;
 let currentStudentId = null;
 
-function loadUsedCodes(){
-  try{
-    return JSON.parse(localStorage.getItem(USED_CODES_KEY) || '[]');
-  }catch(e){ return []; }
-}
-function saveUsedCode(code){
-  const arr = loadUsedCodes();
-  if(!arr.includes(code)) arr.push(code);
-  localStorage.setItem(USED_CODES_KEY, JSON.stringify(arr));
-}
+function loadUsedCodes(){ try{ return JSON.parse(localStorage.getItem(USED_CODES_KEY) || '[]'); }catch(e){ return []; } }
+function saveUsedCode(code){ const arr = loadUsedCodes(); if(!arr.includes(code)) arr.push(code); localStorage.setItem(USED_CODES_KEY, JSON.stringify(arr)); }
 
-function startTimer(){
-  const display = document.getElementById('timerDisplay');
-  // if session has remaining time (in case of reload)
-  const saved = sessionStorage.getItem(`exam_${currentCode}_start_${location.pathname}`);
-  if(saved){
-    startTimestamp = parseInt(saved,10);
-    const elapsed = Math.floor((Date.now()-startTimestamp)/1000);
-    totalSeconds = Math.max(0, 15*60 - elapsed);
-  } else {
-    startTimestamp = Date.now();
-    sessionStorage.setItem(`exam_${currentCode}_start_${location.pathname}`, String(startTimestamp));
-  }
-
+function startTimer(){ 
+  const display = document.getElementById('timerDisplay'); 
+  const saved = sessionStorage.getItem(`exam_${currentCode}_start_${location.pathname}`); 
+  if(saved){ 
+    startTimestamp = parseInt(saved,10); 
+    const elapsed = Math.floor((Date.now()-startTimestamp)/1000); 
+    totalSeconds = Math.max(0, 15*60 - elapsed); 
+  } else { 
+    startTimestamp = Date.now(); 
+    sessionStorage.setItem(`exam_${currentCode}_start_${location.pathname}`, String(startTimestamp)); 
+  } 
   timerInterval = setInterval(()=>{
-    const m = Math.floor(totalSeconds/60).toString().padStart(2,'0');
-    const s = (totalSeconds%60).toString().padStart(2,'0');
-    display.textContent = `${m}:${s}`;
-    if(totalSeconds<=0){
-      clearInterval(timerInterval);
-      alert('انتهى الوقت! سيتم إرسال الامتحان تلقائيًا.');
-      submitExam(true);
-    }
-    totalSeconds--;
-  },1000);
+    const m = Math.floor(totalSeconds/60).toString().padStart(2,'0'); 
+    const s = (totalSeconds%60).toString().padStart(2,'0'); 
+    display.textContent = `${m}:${s}`; 
+    if(totalSeconds<=0){ 
+      clearInterval(timerInterval); 
+      alert('انتهى الوقت! سيتم إرسال الامتحان تلقائيًا.'); 
+      submitExam(true); 
+    } 
+    totalSeconds--; 
+  },1000); 
 }
 
-function collectAnswers(){
-  const out={};
-  for(let i=1;i<=10;i++){
-    const el = document.querySelector(`input[name=q${i}]:checked`);
-    out['q'+i] = el ? el.value : '';
-  }
-  return out;
-}
-
-function computeResults(answers){
-  let score=0;
-  const details={};
-  for(const k in CORRECT_ANSWERS){
-    const correct = CORRECT_ANSWERS[k];
-    const chosen = answers[k] || '';
-    const ok = chosen === correct;
-    details[k] = { chosen, correct, ok };
-    if(ok) score++;
-  }
-  return {score, details};
-}
-
+function collectAnswers(){ const out={}; for(let i=1;i<=10;i++){ const el = document.querySelector(`input[name=q${i}]:checked`); out['q'+i] = el ? el.value : ''; } return out; }
+function computeResults(answers){ let score=0; const details={}; for(const k in CORRECT_ANSWERS){ const correct = CORRECT_ANSWERS[k]; const chosen = answers[k] || ''; const ok = chosen === correct; details[k] = { chosen, correct, ok }; if(ok) score++; } return {score, details}; }
 function formatTelegramMessage(subject, studentId, code, answers, results, timeTakenSec){
-  const now = new Date();
-  let txt = `📘 *امتحان: ${subject}*\n`;
-  txt += `👤 Student ID: ${studentId}\n`;
-  txt += `🔑 Code: ${code}\n`;
-  txt += `⏱️ الوقت المأخوذ: ${timeTakenSec} ثانية\n`;
-  txt += `🕒 وقت الإرسال: ${now.toLocaleString('ar-EG')}\n`;
-  txt += `\n*التفاصيل:*\n`;
-  for(const q in results.details){
-    const d = results.details[q];
-    txt += `${q} - اختر: ${d.chosen || '---'} | الصح: ${d.correct} => ${d.ok ? '✅' : '❌'}\n`;
-  }
-  txt += `\n*النتيجة:* ${results.score} / 10\n`;
-  return txt;
+  const now = new Date(); 
+  let txt = `📘 *امتحان: ${subject}*\n`; 
+  txt += `👤 Student ID: ${studentId}\n`; 
+  txt += `🔑 Code: ${code}\n`; 
+  txt += `⏱️ الوقت المأخوذ: ${timeTakenSec} ثانية\n`; 
+  txt += `🕒 وقت الإرسال: ${now.toLocaleString('ar-EG')}\n`; 
+  txt += `\n*التفاصيل:*\n`; 
+  for(const q in results.details){ const d = results.details[q]; txt += `${q} - اختر: ${d.chosen || '---'} | الصح: ${d.correct} => ${d.ok ? '✅' : '❌'}\n`; } 
+  txt += `\n*النتيجة:* ${results.score} / 10\n`; 
+  return txt; 
 }
 
-async function sendToTelegram(message){
-  const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-  try{
-    const res = await fetch(url,{ method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' }) });
-    return res.ok;
-  }catch(e){ console.error(e); return false; }
+async function sendToTelegram(message){ 
+  const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`; 
+  try{ 
+    const res = await fetch(url,{ method:'POST',headers:{'Content-Type':'application/json'},body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'Markdown' }) }); 
+    return res.ok; 
+  }catch(e){ console.error(e); return false; } 
 }
 
-async function submitExam(auto=false){
-  // اجمع البيانات
-  const answers = collectAnswers();
-  const results = computeResults(answers);
-  const now = Date.now();
-  const timeTakenSec = Math.floor((now - startTimestamp)/1000);
-  const msg = formatTelegramMessage('الرياضيات', currentStudentId, currentCode, answers, results, timeTakenSec);
-
-  // أرسل للتلجرام
-  const ok = await sendToTelegram(msg);
-  if(ok){
-    alert('تم إرسال الامتحان إلى التلجرام.');
-    // سجل الكود كمُستخدم وممنوع إعادة الدخول
-    saveUsedCode(currentCode);
-    // منع دخول مرة تانية لنفس الكود
-    sessionStorage.setItem(`exam_${currentCode}_submitted_${location.pathname}`, '1');
-    // اقفال النموذج
-    document.getElementById('examForm').querySelectorAll('input,button').forEach(el=>el.disabled=true);
-    // حذف بيانات الجلسة للوقت
-    sessionStorage.removeItem(`exam_${currentCode}_start_${location.pathname}`);
-  }else{
-    alert('فشل في إرسال الرسالة. تحقق من التوكن/Chat ID أو اتصال الإنترنت.');
-    if(!auto){ // لو الإرسال يدوي وما نجح، نترك الإمكانية للمحاولة مرة تانية
-      startTimer();
-    }
-  }
+async function submitExam(auto=false){ 
+  const answers = collectAnswers(); 
+  const results = computeResults(answers); 
+  const now = Date.now(); 
+  const timeTakenSec = Math.floor((now - startTimestamp)/1000); 
+  const msg = formatTelegramMessage('الرياضيات', currentStudentId, currentCode, answers, results, timeTakenSec); 
+  const ok = await sendToTelegram(msg); 
+  if(ok){ 
+    alert('تم إرسال الامتحان إلى التلجرام.'); 
+    saveUsedCode(currentCode); 
+    sessionStorage.setItem(`exam_${currentCode}_submitted_${location.pathname}`, '1'); 
+    document.getElementById('examForm').querySelectorAll('input,button').forEach(el=>el.disabled=true); 
+    sessionStorage.removeItem(`exam_${currentCode}_start_${location.pathname}`); 
+  }else{ 
+    alert('فشل في إرسال الرسالة. تحقق من التوكن/Chat ID أو اتصال الإنترنت.'); 
+    if(!auto){ startTimer(); } 
+  } 
 }
 
-// حدث بدء الامتحان
 document.getElementById('startBtn').addEventListener('click', ()=>{
-  const code = (document.getElementById('codeInput').value || '').trim();
-  const studentId = (document.getElementById('studentIdInput').value || '').trim();
-  const msgEl = document.getElementById('loginMsg');
-  msgEl.textContent = '';
-
-  if(!/^\d{4}$/.test(code)){
-    msgEl.textContent = 'الكود يجب أن يكون 4 أرقام.'; return;
-  }
-  if(!/^\d{11}$/.test(studentId)){
-    msgEl.textContent = 'Student ID يجب أن يكون 11 رقماً.'; return;
-  }
-  if(!VALID_CODES.includes(code)){
-    msgEl.textContent = 'الكود غير صحيح.'; return;
-  }
-  const used = loadUsedCodes();
-  if(used.includes(code)){
-    msgEl.textContent = 'هذا الكود مستخدم بالفعل ولا يمكن الدخول.'; return;
-  }
-  // تحقق إذا سبق تقديمه في نفس المسار (submitted flag)
-  if(sessionStorage.getItem(`exam_${code}_submitted_${location.pathname}`)){
-    msgEl.textContent = 'تم تسليم الامتحان سابقاً باستخدام هذا الكود.'; return;
-  }
-
-  // كل شيء تمام - ابدأ الامتحان
-  currentCode = code;
-  currentStudentId = studentId;
-  document.getElementById('loginBox').classList.add('hidden');
-  document.getElementById('examForm').classList.remove('hidden');
-  startTimer();
+  const code = (document.getElementById('codeInput').value || '').trim(); 
+  const studentId = (document.getElementById('studentIdInput').value || '').trim(); 
+  const msgEl = document.getElementById('loginMsg'); msgEl.textContent = ''; 
+  if(!/^\d{4}$/.test(code)){ msgEl.textContent = 'الكود يجب أن يكون 4 أرقام.'; return; } 
+  if(!/^\d{11}$/.test(studentId)){ msgEl.textContent = 'Student ID يجب أن يكون 11 رقماً.'; return; } 
+  if(!VALID_CODES.includes(code)){ msgEl.textContent = 'الكود غير صحيح.'; return; } 
+  const used = loadUsedCodes(); 
+  if(used.includes(code)){ msgEl.textContent = 'هذا الكود مستخدم بالفعل ولا يمكن الدخول.'; return; } 
+  if(sessionStorage.getItem(`exam_${code}_submitted_${location.pathname}`)){ msgEl.textContent = 'تم تسليم الامتحان سابقاً باستخدام هذا الكود.'; return; } 
+  currentCode = code; 
+  currentStudentId = studentId; 
+  document.getElementById('loginBox').classList.add('hidden'); 
+  document.getElementById('examForm').classList.remove('hidden'); 
+  startTimer(); 
 });
 
-// حدث إرسال النموذج
-document.getElementById('examForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  clearInterval(timerInterval);
-  submitExam(false);
+document.getElementById('examForm').addEventListener('submit', function(e){ 
+  e.preventDefault(); 
+  clearInterval(timerInterval); 
+  submitExam(false); 
 });
-
-// عند فتح الصفحة - منع الدخول إذا الكود تم استخدامه (نظرة عامة)
-(function(){
-  // nothing else for now
-})();
-
-</script></body>
-</html>
+</script>
+</body>
+                 </html>
