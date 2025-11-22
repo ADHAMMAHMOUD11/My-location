@@ -1,28 +1,34 @@
-<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>امتحانات الصف الثالث الثانوي </title>
+<title>امتحانات الصف الثالث الثانوي</title>
 <style>
     body {
         font-family: Tahoma, sans-serif;
-        background: #f4f6fa;
+        background: url('background.jpg') no-repeat center center;
+        background-size: cover;
         margin: 0;
         padding: 20px;
         text-align: center;
+        color: #000; /* لون النص يمكن تغييره حسب الصورة */
     }
+
     h1 {
         margin-bottom: 30px;
+        color: #fff; /* إذا الصورة غامقة يخلي العنوان يظهر */
+        text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
     }
+
     .container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 20px;
         padding: 20px;
     }
+
     .subject {
-        background: white;
+        background: rgba(255, 255, 255, 0.9); /* شبه شفاف عشان يبان النص */
         padding: 15px;
         border-radius: 15px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -31,10 +37,12 @@
         text-decoration: none;
         color: black;
     }
+
     .subject:hover {
         transform: scale(1.05);
         box-shadow: 0 6px 14px rgba(0,0,0,0.15);
     }
+
     .subject img {
         width: 100%;
         height: 140px;
@@ -42,6 +50,7 @@
         border-radius: 10px;
         margin-bottom: 10px;
     }
+
     .subject p {
         margin: 0;
         font-size: 20px;
@@ -82,7 +91,6 @@
             <p>الكيمياء</p>
         </a>
 
-        <!-- زر التواصل -->
         <a class="subject" href="contact.html">
             <img src="contact-icon.png" alt="تواصل معنا">
             <p>تواصل معنا</p>
