@@ -10,8 +10,8 @@
         padding: 20px;
         text-align: center;
         color: #fff;
-        background: url('background.jpg') no-repeat center center;
-        background-size: cover; /* تغطي كامل الشاشة */
+        background: url('background.jpg') no-repeat center top;
+        background-size: 100% auto; /* العرض يغطي الشاشة، الارتفاع يتناسب */
         background-attachment: fixed; /* تجعل الخلفية ثابتة عند السحب */
         position: relative;
         min-height: 100vh;
@@ -23,7 +23,7 @@
         position: fixed;
         top: 0; left: 0;
         width: 100%; height: 100%;
-        background: rgba(0,0,0,0.3); /* يمكن تعديل الشفافية حسب وضوح النصوص */
+        background: rgba(0,0,0,0.3);
         z-index: -1;
     }
 
@@ -41,7 +41,7 @@
     }
 
     .subject {
-        background: rgba(255, 255, 255, 0.9); /* شبه شفاف */
+        background: rgba(255, 255, 255, 0.9);
         padding: 15px;
         border-radius: 15px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -77,6 +77,15 @@
         .subject p {
             font-size: 18px;
         }
+    }
+
+    /* حقوق الملكية */
+    .footer {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 14px;
+        color: #fff;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
     }
 </style>
 </head>
@@ -117,7 +126,10 @@
             <img src="contact-icon.png" alt="تواصل معنا">
             <p>تواصل معنا</p>
         </a>
-        <p style="text-align:center; margin-top:40px;">جميع الحقوق محفوظة لـ ادهم محمود ©</p>
+    </div>
+
+    <div class="footer">
+        جميع الحقوق محفوظة لـ ادهم محمود ©
     </div>
 </body>
-                </html>
+</html>
