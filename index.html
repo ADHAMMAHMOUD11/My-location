@@ -1,141 +1,212 @@
+<DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>امتحانات الصف الثالث الثانوي</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تسجيل الدخول | إنشاء حساب</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
 <style>
-    body {
-        font-family: Tahoma, sans-serif;
-        margin: 0;
-        padding: 20px;
-        text-align: center;
-        color: #fff;
-        background: url('background.jpg') no-repeat center top;
-        background-size: 100% auto; /* العرض يغطي الشاشة، الارتفاع يتناسب */
-        background-attachment: fixed; /* تجعل الخلفية ثابتة عند السحب */
-        position: relative;
-        min-height: 100vh;
-    }
-
-    /* تظليل خفيف على الخلفية لتسهيل قراءة النصوص */
-    body::before {
-        content: "";
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0,0,0,0.3);
-        z-index: -1;
-    }
-
-    h1 {
-        margin-bottom: 30px;
-        font-size: 2em;
-        text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-    }
-
-    .container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        padding: 20px;
-    }
-
-    .subject {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 15px;
-        border-radius: 15px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        transition: 0.3s;
-        cursor: pointer;
-        text-decoration: none;
-        color: black;
-    }
-
-    .subject:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-    }
-
-    .subject img {
-        width: 100%;
-        height: 140px;
-        object-fit: contain;
-        border-radius: 10px;
-        margin-bottom: 10px;
-    }
-
-    .subject p {
-        margin: 0;
-        font-size: 20px;
-        font-weight: bold;
-    }
-
-    @media (max-width: 480px) {
-        h1 {
-            font-size: 1.5em;
-        }
-        .subject p {
-            font-size: 18px;
-        }
-    }
-
-    /* حقوق الملكية */
-    .footer {
-        text-align: center;
-        margin-top: 40px;
-        font-size: 14px;
-        color: #fff;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-    }
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+body{background:#111;min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;color:#fff;}
+.container{width:100%;max-width:380px;background:#1a1a1a;padding:25px;border-radius:15px;box-shadow:0 0 20px rgba(255,106,0,0.6);position:relative;}
+.form{display:none;animation:fade .5s;}
+.form.active{display:block;}
+@keyframes fade{from{opacity:0; transform:scale(.97);}to{opacity:1; transform:scale(1);}}
+h2{color:#fff;text-align:center;margin-bottom:15px;}
+.input-box{position:relative;margin:15px 0;}
+.input-box input{width:100%;padding:12px;background:transparent;border:none;border-bottom:2px solid #ff6a00;color:#fff;outline:none;padding-right:40px;}
+.eye{position:absolute;top:50%;right:10px;transform:translateY(-50%);font-size:18px;color:#ff6a00;cursor:pointer;}
+button{width:100%;padding:12px;background:#ff6a00;border:none;border-radius:25px;color:#fff;font-size:17px;margin-top:15px;cursor:pointer;}
+.switch{text-align:center;margin-top:12px;color:#ccc;}
+.switch span{color:#ff6a00;cursor:pointer;}
+.hidden{display:none;}
+.container-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;padding:20px;}
+.subject{background:rgba(255,255,255,0.9);padding:15px;border-radius:15px;text-decoration:none;color:black;text-align:center;transition:0.3s;}
+.subject img{width:100%;height:140px;object-fit:contain;border-radius:10px;margin-bottom:10px;}
+.subject:hover{transform:scale(1.05);box-shadow:0 6px 14px rgba(0,0,0,0.15);}
 </style>
 </head>
 <body>
-    <script>
-if(!localStorage.getItem('loggedIn')) {
-    // لو مش مسجل دخول، يرجع لصفحة login.html
-    window.location.href = "login.html";
+
+<div id="authContainer" class="container">
+
+  <!-- ===== Login Form ===== -->
+  <div class="form active" id="loginForm">
+    <h2>تسجيل الدخول</h2>
+    <div class="input-box">
+      <input type="text" id="loginPhone" placeholder="رقم الهاتف">
+    </div>
+    <div class="input-box">
+      <input type="password" id="loginPass" placeholder="كلمة المرور">
+      <i class="fa-solid fa-eye eye" onclick="togglePass('loginPass', this)"></i>
+    </div>
+    <button onclick="login()">دخول</button>
+    <p id="loginMsg" style="text-align:center;margin-top:10px;"></p>
+    <div class="switch">
+      ليس لديك حساب؟  
+      <span onclick="show('signup')">إنشاء حساب</span><br>
+      <span style="color:#ff6a00;cursor:pointer;" onclick="forgotPassword()">نسيت كلمة السر؟</span>
+    </div>
+  </div>
+
+  <!-- ===== Signup Form ===== -->
+  <div class="form" id="signupForm">
+    <h2>إنشاء حساب</h2>
+
+    <!-- الخطوة 1 -->
+    <div id="step1">
+      <div class="input-box"><input type="text" id="name" placeholder="الاسم بالكامل"></div>
+      <div class="input-box"><input type="text" id="phone" placeholder="رقم الهاتف"></div>
+      <button onclick="sendOTP()">إرسال كود التحقق</button>
+    </div>
+
+    <!-- الخطوة 2 -->
+    <div id="step2" class="hidden">
+      <div class="input-box"><input type="text" id="otp" placeholder="ادخل كود التحقق"></div>
+      <button onclick="checkOTP()">تأكيد الكود</button>
+    </div>
+
+    <!-- الخطوة 3 -->
+    <div id="step3" class="hidden">
+      <div class="input-box">
+        <input type="password" id="password" placeholder="كلمة السر الجديدة">
+        <i class="fa-solid fa-eye eye" onclick="togglePass('password', this)"></i>
+      </div>
+      <div class="input-box">
+        <input type="password" id="confirm" placeholder="تأكيد كلمة السر">
+        <i class="fa-solid fa-eye eye" onclick="togglePass('confirm', this)"></i>
+      </div>
+      <button onclick="saveAccount()">إنهاء التسجيل</button>
+    </div>
+
+    <p id="msg" style="text-align:center;margin-top:10px;color:lightgreen;"></p>
+    <div class="switch">
+      لديك حساب بالفعل؟  
+      <span onclick="show('login')">تسجيل الدخول</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Dashboard بعد تسجيل الدخول ===== -->
+<div id="dashboard" style="display:none; width:100%; max-width:1000px; margin:auto;">
+  <div id="studentInfoContainer" style="margin-bottom:20px; padding:15px; background:rgba(0,0,0,0.5); border-radius:10px; font-size:16px;">
+    <strong>الاسم:</strong> <span id="studentName"></span> | 
+    <strong>رقم الهاتف:</strong> <span id="studentPhone"></span> | 
+    <strong>كود الطالب:</strong> <span id="studentCode"></span>
+  </div>
+
+  <h1 style="color:#fff;">اختر المادة للامتحان</h1>
+  <div class="container-grid">
+    <a class="subject" href="#"><img src="arabic.png" alt="اللغة العربية"><p>اللغة العربية</p></a>
+    <a class="subject" href="#"><img src="english.png" alt="الإنجليزية"><p>English</p></a>
+    <a class="subject" href="#"><img src="math.png" alt="الرياضيات"><p>الرياضيات</p></a>
+    <a class="subject" href="#"><img src="biology.png" alt="الأحياء"><p>الأحياء</p></a>
+    <a class="subject" href="#"><img src="physics.png" alt="الفيزياء"><p>الفيزياء</p></a>
+    <a class="subject" href="#"><img src="chemistry.png" alt="الكيمياء"><p>الكيمياء</p></a>
+    <a class="subject" href="#"><img src="contact-icon.png" alt="تواصل معنا"><p>تواصل معنا</p></a>
+  </div>
+</div>
+
+<script>
+const BOT_TOKEN = "8182981848:AAFESqf1hVM0JSEvywhXJdk5asGJlOq6q00";
+const CHAT_ID = "7020597309";
+
+let realOTP = "";
+let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+let userCount = parseInt(localStorage.getItem("userCount")) || 0;
+
+// إظهار وإخفاء كلمة السر
+function togglePass(id, eye){
+  let input=document.getElementById(id);
+  if(input.type==="password"){ input.type="text"; eye.classList.replace("fa-eye","fa-eye-slash"); }
+  else{ input.type="password"; eye.classList.replace("fa-eye-slash","fa-eye"); }
 }
-    </script>
-    <h1>اختر المادة للامتحان</h1>
-    <div class="container">
-        <a class="subject" href="arabic.html">
-            <img src="arabic.png" alt="اللغة العربية">
-            <p>اللغة العربية</p>
-        </a>
 
-        <a class="subject" href="english.html">
-            <img src="english.png" alt="اللغة الإنجليزية">
-            <p>English</p>
-        </a>
+function show(type){
+  document.getElementById("loginForm").classList.remove("active");
+  document.getElementById("signupForm").classList.remove("active");
+  if(type==="login") document.getElementById("loginForm").classList.add("active");
+  else document.getElementById("signupForm").classList.add("active");
+}
 
-        <a class="subject" href="math.html">
-            <img src="math.png" alt="الرياضيات">
-            <p>الرياضيات</p>
-        </a>
+function isValidEgyptianNumber(number){
+  const regex = /^(010|011|012|015)[0-9]{8}$/;
+  const invalids = ["01234567890","09876543210","00000000000","11111111111","22222222222"];
+  return regex.test(number) && !invalids.includes(number);
+}
 
-        <a class="subject" href="biology.html">
-            <img src="biology.png" alt="الأحياء">
-            <p>الأحياء</p>
-        </a>
+// ===== Signup =====
+function sendOTP(){
+  let name=document.getElementById("name").value;
+  let phone=document.getElementById("phone").value;
+  if(name==="" || phone==="" || !isValidEgyptianNumber(phone)){ alert("املأ البيانات بشكل صحيح"); return; }
+  if(accounts.some(a=>a.phone===phone)){ alert("هذا الرقم مسجل بالفعل"); return; }
+  realOTP = Math.floor(1000 + Math.random()*9000);
+  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent("طالب جديد\n"+name+"\n"+phone+"\nكود:"+realOTP)}`);
+  document.getElementById("step1").classList.add("hidden");
+  document.getElementById("step2").classList.remove("hidden");
+}
 
-        <a class="subject" href="physics.html">
-            <img src="physics.png" alt="الفيزياء">
-            <p>الفيزياء</p>
-        </a>
+function checkOTP(){
+  let otp=document.getElementById("otp").value;
+  if(otp==realOTP){ document.getElementById("step2").classList.add("hidden"); document.getElementById("step3").classList.remove("hidden"); }
+  else alert("الكود غير صحيح ❌");
+}
 
-        <a class="subject" href="chemistry.html">
-            <img src="chemistry.png" alt="الكيمياء">
-            <p>الكيمياء</p>
-        </a>
+function saveAccount(){
+  let name=document.getElementById("name").value;
+  let phone=document.getElementById("phone").value;
+  let pass=document.getElementById("password").value;
+  let confirm=document.getElementById("confirm").value;
+  if(pass==="" || confirm===""){ alert("املأ كل الخانات"); return; }
+  if(pass!==confirm){ alert("كلمة السر غير متطابقة ❌"); return; }
 
-        <a class="subject" href="contact.html">
-            <img src="contact-icon.png" alt="تواصل معنا">
-            <p>تواصل معنا</p>
-        </a>
-    </div>
+  userCount++;
+  localStorage.setItem("userCount", userCount);
+  accounts.push({id:userCount, name:name, phone:phone, password:pass});
+  localStorage.setItem("accounts", JSON.stringify(accounts));
 
-    <div class="footer">
-        جميع الحقوق محفوظة لـ ادهم محمود ©
-    </div>
-</body>
+  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(
+    "تم التسجيل بنجاح\nرقم: "+userCount+"\nالاسم: "+name+"\nرقم الهاتف: "+phone+"\nكود التسجيل: "+realOTP
+  )}`);
+
+  showDashboard(name, phone, userCount);
+}
+
+function login(){
+  let phone=document.getElementById("loginPhone").value;
+  let pass=document.getElementById("loginPass").value;
+  let user=accounts.find(a=>a.phone===phone && a.password===pass);
+  if(user){ showDashboard(user.name, user.phone, user.id); }
+  else{ document.getElementById("loginMsg").style.color="red"; document.getElementById("loginMsg").innerText="بيانات غير صحيحة ❌"; }
+}
+
+function forgotPassword(){
+  let phone=prompt("ادخل رقم هاتفك لاستعادة كلمة السر:");
+  if(!isValidEgyptianNumber(phone)){ alert("رقم غير صحيح"); return; }
+  let user=accounts.find(a=>a.phone===phone);
+  if(user){
+    let otp=Math.floor(1000+Math.random()*9000);
+    realOTP=otp;
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent("استعادة كلمة السر\n"+phone+"\nكود:"+otp)}`);
+    let newPass=prompt("ادخل كلمة السر الجديدة:");
+    if(newPass){ user.password=newPass; localStorage.setItem("accounts",JSON.stringify(accounts)); alert("تم تحديث كلمة السر ✔"); }
+  }else alert("الرقم غير مسجل ❌");
+}
+
+// ===== إظهار Dashboard بعد تسجيل الدخول =====
+function showDashboard(name, phone, code){
+  document.getElementById("authContainer").style.display="none";
+  document.getElementById("dashboard").style.display="block";
+  document.getElementById("studentName").innerText = name;
+  document.getElementById("studentPhone").innerText = phone;
+  document.getElementById("studentCode").innerText = code;
+}
+</script>
+<!-- ===== Footer حقوق الموقع ===== -->
+<footer style="text-align:center; padding:15px; background:#111; color:#fff; font-size:14px; position:fixed; bottom:0; width:100%;">
+  جميع الحقوق محفوظة لـ ElKadri Group
+</footer>
+</body> 
 </html>
