@@ -90,6 +90,12 @@
 </style>
 </head>
 <body>
+    <script>
+if(!localStorage.getItem('loggedIn')) {
+    // لو مش مسجل دخول، يرجع لصفحة login.html
+    window.location.href = "login.html";
+}
+    </script>
     <h1>اختر المادة للامتحان</h1>
     <div class="container">
         <a class="subject" href="arabic.html">
