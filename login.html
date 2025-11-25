@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تسجيل الدخول | إنشاء حساب</title>
+<title>Login</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
 body{background:#111;min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;}
@@ -18,10 +19,9 @@ h2{color:#fff;text-align:center;margin-bottom:15px;}
 button{width:100%;padding:12px;background:#ff6a00;border:none;border-radius:25px;color:#fff;font-size:17px;margin-top:15px;cursor:pointer;}
 .switch{text-align:center;margin-top:12px;color:#ccc;}
 .switch span{color:#ff6a00;cursor:pointer;}
+.forgot{text-align:center;margin-top:8px;color:#ff6a00;cursor:pointer;}
 .hidden{display:none;}
-.forgot{font-size:14px;color:#ff6a00;text-align:right;cursor:pointer;margin-top:5px;}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
 
@@ -37,9 +37,9 @@ button{width:100%;padding:12px;background:#ff6a00;border:none;border-radius:25px
       <input type="password" id="loginPass" placeholder="كلمة المرور">
       <i class="fa-solid fa-eye eye" onclick="togglePass('loginPass', this)"></i>
     </div>
-    <div class="forgot" onclick="forgotPassword()">هل نسيت كلمة السر؟</div>
     <button onclick="login()">دخول</button>
     <p id="loginMsg" style="text-align:center;margin-top:10px;"></p>
+    <div class="forgot" onclick="forgotPass()">نسيت كلمة السر؟</div>
     <div class="switch">
       ليس لديك حساب؟  
       <span onclick="show('signup')">إنشاء حساب</span>
@@ -49,18 +49,15 @@ button{width:100%;padding:12px;background:#ff6a00;border:none;border-radius:25px
   <!-- Signup Form -->
   <div class="form" id="signupForm">
     <h2>إنشاء حساب</h2>
-    <!-- Step 1 -->
     <div id="step1">
       <div class="input-box"><input type="text" id="name" placeholder="الاسم بالكامل"></div>
       <div class="input-box"><input type="text" id="phone" placeholder="رقم الهاتف"></div>
       <button onclick="sendOTP()">إرسال كود التحقق</button>
     </div>
-    <!-- Step 2 -->
     <div id="step2" class="hidden">
       <div class="input-box"><input type="text" id="otp" placeholder="ادخل كود التحقق"></div>
       <button onclick="checkOTP()">تأكيد الكود</button>
     </div>
-    <!-- Step 3 -->
     <div id="step3" class="hidden">
       <div class="input-box">
         <input type="password" id="password" placeholder="كلمة السر الجديدة">
@@ -79,93 +76,58 @@ button{width:100%;padding:12px;background:#ff6a00;border:none;border-radius:25px
     </div>
   </div>
 
-  <!-- Forgot Password Form -->
-  <div class="form" id="forgotForm">
-    <h2>استعادة كلمة السر</h2>
-    <div id="forgotStep1">
-      <div class="input-box"><input type="text" id="forgotPhone" placeholder="أدخل رقم الهاتف"></div>
-      <button onclick="sendForgotOTP()">إرسال كود التحقق</button>
-    </div>
-    <div id="forgotStep2" class="hidden">
-      <div class="input-box"><input type="text" id="forgotOTP" placeholder="ادخل كود التحقق"></div>
-      <button onclick="checkForgotOTP()">تأكيد الكود</button>
-    </div>
-    <div id="forgotStep3" class="hidden">
-      <div class="input-box">
-        <input type="password" id="forgotPassword" placeholder="كلمة السر الجديدة">
-        <i class="fa-solid fa-eye eye" onclick="togglePass('forgotPassword', this)"></i>
-      </div>
-      <div class="input-box">
-        <input type="password" id="forgotConfirm" placeholder="تأكيد كلمة السر">
-        <i class="fa-solid fa-eye eye" onclick="togglePass('forgotConfirm', this)"></i>
-      </div>
-      <button onclick="saveForgotPassword()">تحديث كلمة السر</button>
-    </div>
-    <p id="forgotMsg" style="text-align:center;margin-top:10px;color:lightgreen;"></p>
-    <div class="switch"><span onclick="show('login')">العودة لتسجيل الدخول</span></div>
-  </div>
-
 </div>
 
 <script>
-const BOT_TOKEN = "8182981848:AAFESqf1hVM0JSEvywhXJdk5asGJlOq6q00"; 
-const CHAT_ID = "7020597309"; 
+const BOT_TOKEN = "8182981848:AAFESqf1hVM0JSEvywhXJdk5asGJlOq6q00";
+const CHAT_ID = "7020597309";
 
 let realOTP = "";
-let forgotOTP = "";
 let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
 
-// توليد Device ID
 let deviceID = localStorage.getItem('deviceID');
 if(!deviceID){
   deviceID = "dev-" + Math.random().toString(36).substring(2);
   localStorage.setItem('deviceID', deviceID);
 }
 
-// Toggle password visibility
 function togglePass(id, eye){
   let input = document.getElementById(id);
-  if(input.type === "password"){
-    input.type = "text";
-    eye.classList.replace("fa-eye","fa-eye-slash");
-  }else{
-    input.type = "password";
-    eye.classList.replace("fa-eye-slash","fa-eye");
-  }
+  if(input.type === "password"){input.type="text"; eye.classList.replace("fa-eye","fa-eye-slash");}
+  else{input.type="password"; eye.classList.replace("fa-eye-slash","fa-eye");}
 }
 
 function show(type){
   document.getElementById("loginForm").classList.remove("active");
   document.getElementById("signupForm").classList.remove("active");
-  document.getElementById("forgotForm").classList.remove("active");
   if(type==="login") document.getElementById("loginForm").classList.add("active");
-  else if(type==="signup") document.getElementById("signupForm").classList.add("active");
-  else if(type==="forgot") document.getElementById("forgotForm").classList.add("active");
+  else document.getElementById("signupForm").classList.add("active");
 }
 
-// التحقق من رقم مصري
 function isValidEgyptianNumber(number){
   const regex = /^(010|011|012|015)[0-9]{8}$/;
   const invalids = ["01234567890","09876543210","00000000000","11111111111","22222222222"];
   return regex.test(number) && !invalids.includes(number);
 }
 
-// تسجيل حساب جديد
 function sendOTP(){
   let name = document.getElementById("name").value;
   let phone = document.getElementById("phone").value;
 
-  if(name === "" || phone === "" || !isValidEgyptianNumber(phone)){
+  if(name==="" || phone==="" || !isValidEgyptianNumber(phone)){
     alert("من فضلك املأ البيانات بشكل صحيح وأدخل رقم مصري صحيح");
     return;
   }
-  if(accounts.some(a=>a.phone === phone)){
+
+  if(accounts.some(a=>a.phone===phone)){
     alert("هذا الرقم مسجل بالفعل، استخدم تسجيل الدخول");
     return;
   }
-  realOTP = Math.floor(1000 + Math.random() * 9000);
+
+  realOTP = Math.floor(1000 + Math.random()*9000);
   let text = `🔐 طلب تسجيل جديد\n👤 الاسم: ${name}\n📞 الرقم: ${phone}\n🔢 كود التحقق: ${realOTP}`;
   fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(text)}`);
+
   document.getElementById("step1").classList.add("hidden");
   document.getElementById("step2").classList.remove("hidden");
 }
@@ -185,7 +147,7 @@ function saveAccount(){
   let confirm=document.getElementById("confirm").value;
 
   if(pass==="" || confirm===""){ alert("املأ كل الخانات"); return; }
-  if(pass !== confirm){ alert("كلمة السر غير متطابقة ❌"); return; }
+  if(pass!==confirm){ alert("كلمة السر غير متطابقة ❌"); return; }
 
   accounts.push({name:name, phone:phone, password:pass, deviceID:deviceID});
   localStorage.setItem("accounts", JSON.stringify(accounts));
@@ -194,7 +156,6 @@ function saveAccount(){
   show("login");
 }
 
-// تسجيل الدخول
 function login(){
   let phone=document.getElementById("loginPhone").value;
   let pass=document.getElementById("loginPass").value;
@@ -203,12 +164,14 @@ function login(){
 
   if(user){
     if(user.deviceID !== deviceID){
-      document.getElementById("loginMsg").style.color = "red";
+      document.getElementById("loginMsg").style.color="red";
       document.getElementById("loginMsg").innerText="لا يمكنك تسجيل الدخول من جهاز آخر ❌";
       return;
     }
     localStorage.setItem("logged_user", JSON.stringify(user));
-    window.location.href = "index.html";
+    document.getElementById("loginMsg").style.color="lightgreen";
+    document.getElementById("loginMsg").innerText="تم تسجيل الدخول ✔";
+    setTimeout(()=>{window.location.href="index.html";}, 800);
   }else{
     document.getElementById("loginMsg").style.color="red";
     document.getElementById("loginMsg").innerText="بيانات غير صحيحة ❌";
@@ -216,50 +179,23 @@ function login(){
 }
 
 // نسيت كلمة السر
-function forgotPassword(){
-  show('forgot');
-}
-
-// إرسال OTP لتغيير كلمة السر
-function sendForgotOTP(){
-  let phone = document.getElementById("forgotPhone").value;
+function forgotPass(){
+  let phone = prompt("أدخل رقم هاتفك لاسترجاع كلمة السر:");
   let user = accounts.find(a=>a.phone===phone);
-  if(!user){
-    alert("هذا الرقم غير مسجل ❌");
-    return;
-  }
-  forgotOTP = Math.floor(1000 + Math.random() * 9000);
-  let text = `🔐 طلب إعادة كلمة السر\n📞 الرقم: ${phone}\n🔢 كود التحقق: ${forgotOTP}`;
+  if(!user){ alert("هذا الرقم غير مسجل ❌"); return; }
+  realOTP = Math.floor(1000 + Math.random()*9000);
+  let text = `🔑 طلب استرجاع كلمة السر\n📞 الرقم: ${phone}\n🔢 كود التحقق: ${realOTP}`;
   fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(text)}`);
-  document.getElementById("forgotStep1").classList.add("hidden");
-  document.getElementById("forgotStep2").classList.remove("hidden");
-}
-
-// التحقق من OTP
-function checkForgotOTP(){
-  let otp=document.getElementById("forgotOTP").value;
-  if(otp == forgotOTP){
-    document.getElementById("forgotStep2").classList.add("hidden");
-    document.getElementById("forgotStep3").classList.remove("hidden");
-  }else alert("الكود غير صحيح ❌");
-}
-
-// حفظ كلمة السر الجديدة
-function saveForgotPassword(){
-  let phone = document.getElementById("forgotPhone").value;
-  let pass = document.getElementById("forgotPassword").value;
-  let confirm = document.getElementById("forgotConfirm").value;
-  if(pass==="" || confirm===""){ alert("املأ كل الخانات"); return; }
-  if(pass !== confirm){ alert("كلمة السر غير متطابقة ❌"); return; }
-
-  let user = accounts.find(a=>a.phone===phone);
-  if(user){
-    user.password = pass;
-    localStorage.setItem("accounts", JSON.stringify(accounts));
-    alert("تم تحديث كلمة السر ✔");
-    show("login");
-  }
+  let otp = prompt("تم إرسال كود التحقق على التليجرام. أدخل الكود:");
+  if(otp != realOTP){ alert("الكود غير صحيح ❌"); return; }
+  let newPass = prompt("أدخل كلمة السر الجديدة:");
+  let confirm = prompt("أكد كلمة السر الجديدة:");
+  if(newPass !== confirm){ alert("كلمة السر غير متطابقة ❌"); return; }
+  user.password = newPass;
+  localStorage.setItem("accounts", JSON.stringify(accounts));
+  alert("تم تحديث كلمة السر ✔");
 }
 </script>
+
 </body>
   </html>
