@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>تسجيل الدخول | إنشاء حساب</title>
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
 body{background:#111;min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;}
@@ -20,15 +19,15 @@ button{width:100%;padding:12px;background:#ff6a00;border:none;border-radius:25px
 .switch{text-align:center;margin-top:12px;color:#ccc;}
 .switch span{color:#ff6a00;cursor:pointer;}
 .hidden{display:none;}
+.forgot{font-size:14px;color:#ff6a00;text-align:right;cursor:pointer;margin-top:5px;}
 </style>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
 
 <div class="container">
 
-  <!-- ===== Login Form ===== -->
+  <!-- Login Form -->
   <div class="form active" id="loginForm">
     <h2>تسجيل الدخول</h2>
     <div class="input-box">
@@ -38,33 +37,30 @@ button{width:100%;padding:12px;background:#ff6a00;border:none;border-radius:25px
       <input type="password" id="loginPass" placeholder="كلمة المرور">
       <i class="fa-solid fa-eye eye" onclick="togglePass('loginPass', this)"></i>
     </div>
+    <div class="forgot" onclick="forgotPassword()">هل نسيت كلمة السر؟</div>
     <button onclick="login()">دخول</button>
     <p id="loginMsg" style="text-align:center;margin-top:10px;"></p>
     <div class="switch">
       ليس لديك حساب؟  
-      <span onclick="show('signup')">إنشاء حساب</span><br>
-      <span onclick="forgotPassword()" style="color:#ff6a00;cursor:pointer;">هل نسيت كلمة السر؟</span>
+      <span onclick="show('signup')">إنشاء حساب</span>
     </div>
   </div>
 
-  <!-- ===== Signup Form ===== -->
+  <!-- Signup Form -->
   <div class="form" id="signupForm">
     <h2>إنشاء حساب</h2>
-
-    <!-- الخطوة 1 -->
+    <!-- Step 1 -->
     <div id="step1">
       <div class="input-box"><input type="text" id="name" placeholder="الاسم بالكامل"></div>
       <div class="input-box"><input type="text" id="phone" placeholder="رقم الهاتف"></div>
       <button onclick="sendOTP()">إرسال كود التحقق</button>
     </div>
-
-    <!-- الخطوة 2 -->
+    <!-- Step 2 -->
     <div id="step2" class="hidden">
       <div class="input-box"><input type="text" id="otp" placeholder="ادخل كود التحقق"></div>
       <button onclick="checkOTP()">تأكيد الكود</button>
     </div>
-
-    <!-- الخطوة 3 -->
+    <!-- Step 3 -->
     <div id="step3" class="hidden">
       <div class="input-box">
         <input type="password" id="password" placeholder="كلمة السر الجديدة">
@@ -76,7 +72,6 @@ button{width:100%;padding:12px;background:#ff6a00;border:none;border-radius:25px
       </div>
       <button onclick="saveAccount()">إنهاء التسجيل</button>
     </div>
-
     <p id="msg" style="text-align:center;margin-top:10px;color:lightgreen;"></p>
     <div class="switch">
       لديك حساب بالفعل؟  
@@ -84,22 +79,50 @@ button{width:100%;padding:12px;background:#ff6a00;border:none;border-radius:25px
     </div>
   </div>
 
+  <!-- Forgot Password Form -->
+  <div class="form" id="forgotForm">
+    <h2>استعادة كلمة السر</h2>
+    <div id="forgotStep1">
+      <div class="input-box"><input type="text" id="forgotPhone" placeholder="أدخل رقم الهاتف"></div>
+      <button onclick="sendForgotOTP()">إرسال كود التحقق</button>
+    </div>
+    <div id="forgotStep2" class="hidden">
+      <div class="input-box"><input type="text" id="forgotOTP" placeholder="ادخل كود التحقق"></div>
+      <button onclick="checkForgotOTP()">تأكيد الكود</button>
+    </div>
+    <div id="forgotStep3" class="hidden">
+      <div class="input-box">
+        <input type="password" id="forgotPassword" placeholder="كلمة السر الجديدة">
+        <i class="fa-solid fa-eye eye" onclick="togglePass('forgotPassword', this)"></i>
+      </div>
+      <div class="input-box">
+        <input type="password" id="forgotConfirm" placeholder="تأكيد كلمة السر">
+        <i class="fa-solid fa-eye eye" onclick="togglePass('forgotConfirm', this)"></i>
+      </div>
+      <button onclick="saveForgotPassword()">تحديث كلمة السر</button>
+    </div>
+    <p id="forgotMsg" style="text-align:center;margin-top:10px;color:lightgreen;"></p>
+    <div class="switch"><span onclick="show('login')">العودة لتسجيل الدخول</span></div>
+  </div>
+
 </div>
 
 <script>
-const BOT_TOKEN = "8182981848:AAFESqf1hVM0JSEvywhXJdk5asGJlOq6q00";
-const CHAT_ID = "7020597309";
+const BOT_TOKEN = "8182981848:AAFESqf1hVM0JSEvywhXJdk5asGJlOq6q00"; 
+const CHAT_ID = "7020597309"; 
 
 let realOTP = "";
+let forgotOTP = "";
 let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
 
-// توليد Device ID للمتصفح
+// توليد Device ID
 let deviceID = localStorage.getItem('deviceID');
 if(!deviceID){
   deviceID = "dev-" + Math.random().toString(36).substring(2);
   localStorage.setItem('deviceID', deviceID);
 }
 
+// Toggle password visibility
 function togglePass(id, eye){
   let input = document.getElementById(id);
   if(input.type === "password"){
@@ -114,16 +137,20 @@ function togglePass(id, eye){
 function show(type){
   document.getElementById("loginForm").classList.remove("active");
   document.getElementById("signupForm").classList.remove("active");
+  document.getElementById("forgotForm").classList.remove("active");
   if(type==="login") document.getElementById("loginForm").classList.add("active");
-  else document.getElementById("signupForm").classList.add("active");
+  else if(type==="signup") document.getElementById("signupForm").classList.add("active");
+  else if(type==="forgot") document.getElementById("forgotForm").classList.add("active");
 }
 
+// التحقق من رقم مصري
 function isValidEgyptianNumber(number){
   const regex = /^(010|011|012|015)[0-9]{8}$/;
   const invalids = ["01234567890","09876543210","00000000000","11111111111","22222222222"];
   return regex.test(number) && !invalids.includes(number);
 }
 
+// تسجيل حساب جديد
 function sendOTP(){
   let name = document.getElementById("name").value;
   let phone = document.getElementById("phone").value;
@@ -132,16 +159,13 @@ function sendOTP(){
     alert("من فضلك املأ البيانات بشكل صحيح وأدخل رقم مصري صحيح");
     return;
   }
-
   if(accounts.some(a=>a.phone === phone)){
-    alert("هذا الرقم مسجل بالفعل، استخدم تسجيل الدخول أو نسيت كلمة السر");
+    alert("هذا الرقم مسجل بالفعل، استخدم تسجيل الدخول");
     return;
   }
-
   realOTP = Math.floor(1000 + Math.random() * 9000);
   let text = `🔐 طلب تسجيل جديد\n👤 الاسم: ${name}\n📞 الرقم: ${phone}\n🔢 كود التحقق: ${realOTP}`;
   fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(text)}`);
-
   document.getElementById("step1").classList.add("hidden");
   document.getElementById("step2").classList.remove("hidden");
 }
@@ -170,55 +194,72 @@ function saveAccount(){
   show("login");
 }
 
+// تسجيل الدخول
 function login(){
   let phone=document.getElementById("loginPhone").value;
   let pass=document.getElementById("loginPass").value;
 
   let user = accounts.find(a=>a.phone===phone && a.password===pass);
+
   if(user){
     if(user.deviceID !== deviceID){
-      document.getElementById("loginMsg").style.color="red";
+      document.getElementById("loginMsg").style.color = "red";
       document.getElementById("loginMsg").innerText="لا يمكنك تسجيل الدخول من جهاز آخر ❌";
       return;
     }
-    document.getElementById("loginMsg").style.color="lightgreen";
-    document.getElementById("loginMsg").innerText="تم تسجيل الدخول ✔";
+    localStorage.setItem("logged_user", JSON.stringify(user));
+    window.location.href = "index.html";
   }else{
     document.getElementById("loginMsg").style.color="red";
     document.getElementById("loginMsg").innerText="بيانات غير صحيحة ❌";
   }
 }
 
-// ===== نسيت كلمة السر =====
+// نسيت كلمة السر
 function forgotPassword(){
-  let phone = prompt("ادخل رقم الهاتف المسجل:");
-  if(!isValidEgyptianNumber(phone)){
-    alert("رقم غير صحيح");
-    return;
-  }
-  let user = accounts.find(a=>a.phone === phone);
+  show('forgot');
+}
+
+// إرسال OTP لتغيير كلمة السر
+function sendForgotOTP(){
+  let phone = document.getElementById("forgotPhone").value;
+  let user = accounts.find(a=>a.phone===phone);
   if(!user){
-    alert("هذا الرقم غير مسجل");
+    alert("هذا الرقم غير مسجل ❌");
     return;
   }
-
-  realOTP = Math.floor(1000 + Math.random() * 9000);
-  let text = `🔑 طلب إعادة تعيين كلمة السر\n📞 الرقم: ${phone}\n🔢 كود التحقق: ${realOTP}`;
+  forgotOTP = Math.floor(1000 + Math.random() * 9000);
+  let text = `🔐 طلب إعادة كلمة السر\n📞 الرقم: ${phone}\n🔢 كود التحقق: ${forgotOTP}`;
   fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(text)}`);
+  document.getElementById("forgotStep1").classList.add("hidden");
+  document.getElementById("forgotStep2").classList.remove("hidden");
+}
 
-  let otpInput = prompt("يتم ارسال الكود");
-  if(otpInput == realOTP){
-    let newPass = prompt("ادخل كلمة السر الجديدة:");
-    let confirmPass = prompt("أكد كلمة السر الجديدة:");
-    if(newPass === confirmPass){
-      user.password = newPass;
-      localStorage.setItem("accounts", JSON.stringify(accounts));
-      alert("تم إعادة تعيين كلمة السر بنجاح ✔");
-    }else alert("كلمة السر غير متطابقة ❌");
+// التحقق من OTP
+function checkForgotOTP(){
+  let otp=document.getElementById("forgotOTP").value;
+  if(otp == forgotOTP){
+    document.getElementById("forgotStep2").classList.add("hidden");
+    document.getElementById("forgotStep3").classList.remove("hidden");
   }else alert("الكود غير صحيح ❌");
 }
 
-</script>
+// حفظ كلمة السر الجديدة
+function saveForgotPassword(){
+  let phone = document.getElementById("forgotPhone").value;
+  let pass = document.getElementById("forgotPassword").value;
+  let confirm = document.getElementById("forgotConfirm").value;
+  if(pass==="" || confirm===""){ alert("املأ كل الخانات"); return; }
+  if(pass !== confirm){ alert("كلمة السر غير متطابقة ❌"); return; }
 
+  let user = accounts.find(a=>a.phone===phone);
+  if(user){
+    user.password = pass;
+    localStorage.setItem("accounts", JSON.stringify(accounts));
+    alert("تم تحديث كلمة السر ✔");
+    show("login");
+  }
+}
+</script>
 </body>
-</html>
+  </html>
